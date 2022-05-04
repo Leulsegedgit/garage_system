@@ -1,0 +1,26 @@
+.example-sidenav{
+    height: 100%;
+    width: 18%;
+}
+.sidebuttons{
+    margin: 10px;
+    background-color: rgb(44, 47, 51);
+    color: white;
+    /* opacity: 88%; */
+}
+.sidebuttons :hover  {
+    background-color: rgb(4, 90, 133) !important ;
+}
+.mat-button-focus-overlay {
+    background-color:transparent;
+}
+mat-icon{
+    margin: 10px;  
+}
+.imglogo{
+    text-align: center;
+  justify-content: center;
+}
+.avatar{
+    width: 100px;
+}

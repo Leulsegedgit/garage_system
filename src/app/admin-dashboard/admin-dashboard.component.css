@@ -1,0 +1,42 @@
+.example-container{
+    height: 100%;
+}
+
+/* .sidenavlist{
+    margin-top: 20px;
+    margin-bottom: 30px;
+} */
+.sidebuttons{
+    margin: 10px;
+    background-color: rgb(44, 47, 51);
+    color: white;
+    /* opacity: 88%; */
+}
+.sidebuttons :hover  {
+    background-color: rgb(4, 90, 133) !important ;
+}
+.mat-button-focus-overlay {
+    background-color:transparent;
+}
+mat-icon{
+    margin: 10px;  
+}
+
+
+p {
+    margin: 5px;
+    padding-right: 1rem;
+}
+.account_icon{
+    float: right;
+}
+.marginreception{
+    margin: 20px;
+}
+.dashboard_toolbar{
+    display: inline-block;
+}
+._toolbar{
+    width: 90%;
+}
+

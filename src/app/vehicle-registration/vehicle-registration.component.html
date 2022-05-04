@@ -1,0 +1,141 @@
+<form class="example-form">
+    <h1>Vehicle registration</h1>
+  <h2>ውል</h2>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>የአስረካቢው ስም</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>የተርካቢው ስም</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>የተረከበበት ምክኒያት</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>የገባበት ቀን</mat-label>
+        <input matInput [matDatepicker]="mydatepicker">
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>የወጣበት ቀን</mat-label>
+        <input matInput [matDatepicker]="mydatepicker1">
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker1></mat-datepicker>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>ምርመራ</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+    </tr></table>
+
+    <h2>Vehicle information</h2>
+
+    
+    <table class="example-full-width" cellspacing="0"><tr>
+        <p>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>plate number</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>vehicle fatory</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>model</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>chassi number</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>year made in</mat-label>
+        <input matInput [matDatepicker]="mydatepicker2">
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker2></mat-datepicker>
+      </mat-form-field></td>
+</p>
+<p>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fuel type</mat-label>
+      <mat-select>
+          <mat-option value="benzin">Benzin</mat-option>
+          <mat-option value="disel">Diesel</mat-option>
+          <mat-option value="gasoline">gasoline</mat-option>
+          <mat-option value="kerosene">Kerosene</mat-option>
+      </mat-select>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Libre</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Inssurance type</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Load type</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Libre payment year</mat-label>
+      <input matInput [matDatepicker]="mydatepicker3">
+      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #mydatepicker3></mat-datepicker>
+    </mat-form-field></td>
+</p>
+<p>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+        
+            <mat-label>Loading capacity</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Light or Heavy</mat-label>
+          <mat-select>
+          <mat-option value="light">Light</mat-option>
+          <mat-option value="heavy">Heavy</mat-option>
+          </mat-select>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select>
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="inactive">Inactive</mat-option>
+            </mat-select>
+            </mat-form-field></td>
+    
+    
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Bought date</mat-label>
+      <input matInput [matDatepicker]="mydatepicker4">
+      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #mydatepicker4></mat-datepicker>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Inssurance renewal date</mat-label>
+        <input matInput [matDatepicker]="mydatepicker5">
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker5></mat-datepicker>
+      </mat-form-field></td>
+</p>
+    </tr></table>
+
+  <h2>Other Information</h2>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Other</mat-label>
+    <textarea matInput placeholder="Note..."></textarea>
+  </mat-form-field>
+    
+      
+     <div class="example-button-row">
+      <button mat-raised-button color="primary">Submit</button>
+     </div>
+  </form>
+  

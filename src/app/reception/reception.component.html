@@ -1,0 +1,96 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label><h2>Reception</h2></mat-label>
+      <input matInput disabled >
+    </mat-form-field>
+  <h2>Vechle Information</h2>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plate number</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Manufacturer</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Manufacturer</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+
+    </tr></table>
+
+    <h2>Service Information</h2>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Mentenace Type</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>If Accedent..</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </p>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Service number</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Referential number</mat-label>
+        <input matInput>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last service</mat-label>
+        <input matInput [matDatepicker]="mydatepicker">
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field></td>
+
+    </tr></table>
+
+  <h2>Driver Information</h2>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. San Francisco">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>ID</mat-label>
+        <input matInput placeholder="Ex. California">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>...</mat-label>
+        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
+        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+      </mat-form-field></td>
+    </tr></table>
+    
+        <div>
+           
+            <h4>Damage:</h4>
+            <div class="damage_lists">
+              <span>
+        <mat-checkbox >Dead battery</mat-checkbox>
+        <mat-checkbox >Flat tires</mat-checkbox>
+        <mat-checkbox >Alternator Failure</mat-checkbox>
+        <mat-checkbox > Overheating</mat-checkbox>
+        <mat-checkbox >Radiator is Leaking</mat-checkbox>
+        <mat-checkbox >Fuel Leaks</mat-checkbox>
+        <mat-checkbox >Electrical Problems: Speakers, Lights..</mat-checkbox>
+        <mat-checkbox >Window Problems</mat-checkbox>
+        <mat-checkbox >Rust</mat-checkbox>
+      </span>
+      </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Other</mat-label>
+            <textarea matInput placeholder="specify other damages here...">Paint Scratches and Small Dents, The Car is Consuming Too Much Oil</textarea>
+          </mat-form-field>
+        </div>
+     <div class="example-button-row">
+      <button mat-raised-button color="primary">Submit</button>
+     </div>
+  </form>
+  

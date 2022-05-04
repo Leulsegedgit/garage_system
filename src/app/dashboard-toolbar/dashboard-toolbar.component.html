@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="topnavbar">
+    <div>
+  <!-- <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon>dashboard</mat-icon>
+  </button> -->
+  Admin Dashboard
+</div>
+
+<div class="account_icon">
+  <mat-icon>account_circle</mat-icon>
+  <button mat-button [matMenuTriggerFor]="menu"><mat-icon>arrow_drop_down</mat-icon></button>
+  
+  <mat-menu #menu="matMenu">
+  <button mat-menu-item>Leulseged Wondimu</button>
+  <button mat-menu-item><mat-icon>power_settings_new</mat-icon>Log out</button>
+</mat-menu>
+
+</div>
+
+</mat-toolbar>
