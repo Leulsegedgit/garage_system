@@ -1,63 +1,135 @@
-<h1>Driver Information</h1>
+<form #driverForm="ngForm" action="">
 
-<p><mat-label>Name</mat-label></p>
-<div>
-<span class="inputs"><input matInput placeholder="first name" class="iinnppuutt"></span>
-<span class="inputs"><input matInput placeholder="middle name"></span>
-<span class="inputs"><input matInput placeholder="last name"></span>
-</div>
-
-<div>
-    <p></p>
-    <p><mat-label>DOB</mat-label></p>
-    <P><span class="inputs"><input matInput placeholder="DD-MM-YY"></span></P>
-    <p></p>
-    <p><mat-label>Phone Number</mat-label></p>
-    <P><span class="inputs"><input matInput placeholder="2519..."></span></P>
-    <mat-label>Telephone</mat-label>
-    <form class="example-form">
-        <mat-form-field class="example-full-width" appearance="fill">
-          
-          <span matPrefix>+251 &nbsp;</span>
-          <input type="tel" matInput placeholder="92343..">
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-      </form>
-      
-    <p></p>
-    <p><mat-label>Email</mat-label></p>
-    <P><span class="inputs"><input matInput type="email"></span></P>
+    <h1>Driver Information</h1>
+    <p><mat-label>Id</mat-label></p>
+    <div>
+        <span class="inputs"><input matInput placeholder="Id" class="iinnppuutt" name="id" ngModel></span>
+    </div>    
+    <p><mat-label>Name</mat-label></p>
+    <div>
+    <span class="inputs"><input matInput placeholder="first name" class="iinnppuutt" name="first_name" ngModel></span>
+    <span class="inputs"><input matInput placeholder="middle name" name="middle_name" ngModel></span>
+    <span class="inputs"><input matInput placeholder="last name" name="last_name" ngModel></span>
     </div>
 
     <div>
-        
+        <p></p>
+        <p><mat-label>DOB</mat-label></p>
+        <P><span class="inputs"><input matInput placeholder="DD-MM-YY"></span></P>
+        <p></p>
+        <mat-label>Telephone</mat-label>
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+            
+            <span matPrefix>+251 &nbsp;</span>
+            <input type="tel" matInput placeholder="92343.." name="phone_number" ngModel>
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+        </form>
         
         <p></p>
-        <div></div>
-        <p></p>
-        <div></div>
-            <span class="inputs">
-                <span class="inputs"><mat-label>Address</mat-label></span>
-                <input matInput>
-            </span>
-            <span class="inputs">
-                <span class="inputs"><mat-label>City</mat-label></span>
-                <input matInput>
-            </span>
-            <span class="inputs">
-                <span class="inputs"><mat-label>State</mat-label></span>
-                <input matInput>
-            </span>
-        
+        <p><mat-label>Email</mat-label></p>
+        <P><span class="inputs"><input matInput type="email" name="email" ngModel></span></P>
         </div>
 
-        <div class="example-button-row">
+        <div>
+            
+            
             <p></p>
+            <div></div>
+            <p></p>
+            <div></div>
+                <span class="inputs">
+                    <span class="inputs"><mat-label>Address</mat-label></span>
+                    <input matInput name="address" ngModel>
+                </span>
+                <span class="inputs">
+                    <span class="inputs"><mat-label>City</mat-label></span>
+                    <input matInput name="city" ngModel>
+                </span>
+                <span class="inputs">
+                    <span class="inputs"><mat-label>State</mat-label></span>
+                    <input matInput name="state" ngModel>
+                </span>
+            
+            </div>
 
-            <span class="inputs"><button mat-raised-button><mat-icon>search</mat-icon>Search</button></span>
-           
-            <span class="inputs"><button mat-raised-button color="primary"><mat-icon>save_alt</mat-icon>Add</button></span>
+            <div class="example-button-row">
+                <p></p>
+
+                <span class="inputs"><button mat-raised-button (click)="getDriver(driverForm.value)"><mat-icon>search</mat-icon>Search</button></span>
             
-            <span class="inputs"><button mat-raised-button color="accent"><mat-icon>delete</mat-icon>Delete</button></span>
-            
-          </div>
+                <span class="inputs"><button mat-raised-button color="primary" (click)="addDriver(driverForm.value)"><mat-icon>save_alt</mat-icon>Add</button></span>
+                
+                <span class="inputs"><button mat-raised-button color="accent"><mat-icon>delete</mat-icon>Delete</button></span>
+                
+            </div>
+</form>
+<div>
+<table mat-table [dataSource]="driversdataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="first_name">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="middle_name">
+      <th mat-header-cell *matHeaderCellDef> Middle Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.middle_name}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="last_name">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="phone_number">
+      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.phone_number}} </td>
+    </ng-container>
+
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+      
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+{{driverForm.value | json }}

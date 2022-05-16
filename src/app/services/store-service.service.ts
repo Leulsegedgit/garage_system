@@ -22,4 +22,7 @@ export class StoreServiceService {
   addStore(param:store): Observable<store[]>{
       return  this.http.post<store[]>("http://localhost:3000/api/addstore",param);
       }
+  deleteStore(id:number){
+        return this.http.delete("http://localhost:3000/api/deletestore/"+id);
+      }
 }

@@ -38,7 +38,7 @@ export class StoreRequestComponent implements OnInit {
     {no: 4, request_number: 1237 , service_number: 126 , requester: 'Leulseged',approver: 'Wondimu',date: '12-02-2014'},
     {no: 5, request_number: 1238 , service_number: 127 , requester: 'Mehariw',approver: 'Melak',date: '06-5-2014'}  
   ];
-  displayedColumns: string[] = ['no', 'request_number', 'service_number', 'requester','approver','date'];
+  displayedColumns: string[] = ['no', 'request_number', 'service_number', 'requester','approver','date','action'];
   dataSource = this.stores;
   getStore(param:store){
     this._store.getStore(param).subscribe(
@@ -55,7 +55,17 @@ export class StoreRequestComponent implements OnInit {
         
         this.stores.push(param);
         this.dataSource = this.stores;
-        console.log(this.stores);
+       
+      }
+    )
+  }
+  deleteStore(param:number){
+    console.log(param)
+    this._store.deleteStore(param).subscribe(
+      (data)=>{
+         this.stores = this.stores.filter(function(el) { return el.request_number != param; }); 
+         this.dataSource = this.stores;
+         
       }
     )
   }
