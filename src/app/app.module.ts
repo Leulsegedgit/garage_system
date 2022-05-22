@@ -22,6 +22,7 @@ import { DriverComponent } from './driver/driver.component';
 import { DashboardToolbarComponent } from './dashboard-toolbar/dashboard-toolbar.component';
 import { DashboardSidnavComponent } from './dashboard-sidnav/dashboard-sidnav.component'
 import { MaterialModule } from './material/material.module';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { MaterialModule } from './material/material.module';
     DashboardhomeComponent,
     DriverComponent,
     DashboardToolbarComponent,
-    DashboardSidnavComponent
+    DashboardSidnavComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,

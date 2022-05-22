@@ -1,3 +1,4 @@
+import { partitionArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { StoreServiceService } from '../services/store-service.service';
 export interface store {
@@ -29,6 +30,11 @@ export class StoreRequestComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._store.RefreashRequired.subscribe(
+      response=>{
+        this.getStore(this.stores[0]);
+      }
+    )
   }
 
   public stores:store[] = [
@@ -52,20 +58,21 @@ export class StoreRequestComponent implements OnInit {
   addStore(param:store){
     this._store.addStore(param).subscribe(
       (data)=>{
-        
-        this.stores.push(param);
-        this.dataSource = this.stores;
+          this.stores.push(param);
+       this.dataSource = this.stores;
        
       }
     )
+    
   }
   deleteStore(param:number){
     console.log(param)
     this._store.deleteStore(param).subscribe(
       (data)=>{
+        console.log(this.stores);
          this.stores = this.stores.filter(function(el) { return el.request_number != param; }); 
-         this.dataSource = this.stores;
-         
+
+         this.dataSource = this.stores;   
       }
     )
   }

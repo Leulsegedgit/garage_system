@@ -11,6 +11,7 @@ import { DashboardhomeComponent } from "./dashboardhome/dashboardhome.component"
 import { StoreRequestComponent } from "./store-request/store-request.component";
 import { VehicleRegistrationComponent } from "./vehicle-registration/vehicle-registration.component";
 import { DriverComponent } from "./driver/driver.component";
+import { SupplierComponent } from "./supplier/supplier.component";
 
 
 const routes: Routes = [
@@ -39,6 +40,9 @@ const routes: Routes = [
             },
             {
                 path: 'driver', component: DriverComponent
+            },
+            {
+                path: 'supplier', component: SupplierComponent
             }
         ]
     
