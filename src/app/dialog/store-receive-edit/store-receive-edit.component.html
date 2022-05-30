@@ -1,0 +1,62 @@
+<form #storeForm="ngForm" >
+
+    <table class="example-full-width" cellspacing="0"><tr>
+
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plate number</mat-label>
+        <input matInput name="plate_number" [ngModel]="data.plate_number" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Receive vocher number</mat-label>
+        <input matInput name="receive_vocher_number" [ngModel]="data.receive_vocher_number" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" [ngModel]="data.part_number" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Receiver</mat-label>
+        <input matInput name="receiver" [ngModel]="data.receiver" >
+      </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Deliverer </mat-label>
+          <input matInput name="deliverer" [ngModel]="data.deliverer" >
+        </mat-form-field></td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Supplier </mat-label>
+          <input matInput name="supplier" [ngModel]="data.supplier">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Refference</mat-label>
+          <input matInput name="refference" [ngModel]="data.refference">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Unit price</mat-label>
+          <input matInput name="unit_price" [ngModel]="data.unit_price">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Quantity received</mat-label>
+            <input matInput name="quantity_received" [ngModel]="data.quantity_received">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Quantity remaining</mat-label>
+            <input matInput name="quantity_remaining" [ngModel]="data.quantity_remaining">
+          </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
+          <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #mydatepicker></mat-datepicker>
+        </mat-form-field></td>
+        
+      </tr></table>
+      
+    </form>
+    
+      <mat-dialog-actions>
+          
+          <button mat-raised-button color="primary" mat-dialog-close (click)="updateStoreReceive(storeForm.value,data.no)">Update</button>
+      </mat-dialog-actions>
+      

@@ -1,6 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 
@@ -16,14 +15,22 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 import { ReceptionComponent } from './reception/reception.component';
 import { VehicleRegistrationComponent } from './vehicle-registration/vehicle-registration.component';
-import { StoreRequestComponent } from './store-request/store-request.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 import { DriverComponent } from './driver/driver.component';
 import { DashboardToolbarComponent } from './dashboard-toolbar/dashboard-toolbar.component';
 import { DashboardSidnavComponent } from './dashboard-sidnav/dashboard-sidnav.component'
 import { MaterialModule } from './material/material.module';
 import { SupplierComponent } from './supplier/supplier.component';
-
+import { TechnicianComponent } from './technician/technician.component';
+import { StoreReceiveComponent } from './store/store-receive/store-receive.component';
+import { AllStoreComponent } from './store/store/store.component';
+import { StoreRequestComponent } from './store/store-request/store-request.component';
+import { StoreReceiveEditComponent } from './dialog/store-receive-edit/store-receive-edit.component';
+import { StoreRequestEditComponent } from './dialog/store-request-edit/store-request-edit.component';
+import { StoreIssueComponent } from './store/store-issue/store-issue.component';
+import { StoreIssueEditComponent } from './dialog/store-issue-edit/store-issue-edit.component';
+import { SpareRegistrationComponent } from './store/spare-registration/spare-registration.component';
+import { SpareRegistrationEditComponent } from './dialog/spare-registration-edit/spare-registration-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,16 +42,25 @@ import { SupplierComponent } from './supplier/supplier.component';
     AdminDashboardComponent,
     ReceptionComponent,
     VehicleRegistrationComponent,
-    StoreRequestComponent,
     DashboardhomeComponent,
     DriverComponent,
     DashboardToolbarComponent,
     DashboardSidnavComponent,
-    SupplierComponent
+    SupplierComponent,
+    TechnicianComponent,
+    StoreReceiveComponent,
+    AllStoreComponent,
+    StoreRequestComponent,
+    StoreReceiveEditComponent,
+    StoreRequestEditComponent,
+    StoreIssueComponent,
+    StoreIssueEditComponent,
+    SpareRegistrationComponent,
+    
   ],
+  entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,

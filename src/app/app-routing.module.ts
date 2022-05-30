@@ -8,10 +8,12 @@ import { MainAdminPageComponent } from "./main-admin-page/main-admin-page.compon
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 import { ReceptionComponent } from "./reception/reception.component";
 import { DashboardhomeComponent } from "./dashboardhome/dashboardhome.component";
-import { StoreRequestComponent } from "./store-request/store-request.component";
 import { VehicleRegistrationComponent } from "./vehicle-registration/vehicle-registration.component";
 import { DriverComponent } from "./driver/driver.component";
 import { SupplierComponent } from "./supplier/supplier.component";
+import { TechnicianComponent } from "./technician/technician.component";
+import { StoreReceiveComponent } from "./store/store-receive/store-receive.component";
+import { AllStoreComponent } from "./store/store/store.component";
 
 
 const routes: Routes = [
@@ -33,7 +35,7 @@ const routes: Routes = [
                 path: 'reception', component: ReceptionComponent
             },
             {
-                path: 'store', component: StoreRequestComponent
+                path: 'all_store', component: AllStoreComponent
             },
             {
                 path: 'vehicle', component: VehicleRegistrationComponent
@@ -43,6 +45,9 @@ const routes: Routes = [
             },
             {
                 path: 'supplier', component: SupplierComponent
+            },
+            {
+                path: 'technician', component: TechnicianComponent
             }
         ]
     
