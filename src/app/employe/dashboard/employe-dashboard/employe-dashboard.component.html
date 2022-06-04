@@ -1,0 +1,30 @@
+<mat-drawer-container class="example-container" autosize>
+
+    <mat-drawer #drawer class="example-sidenav" mode="side" style="background-color: rgb(45, 46, 48);">
+      <app-dashboard-sidenav-employee></app-dashboard-sidenav-employee>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content" style="background-color: rgb(183, 188, 197);">
+
+      <div>
+
+          <div class="dashboard_toolbar">
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon>dashboard</mat-icon>
+            </button> 
+          </div>
+
+          <div class="dashboard_toolbar _toolbar" >
+            <app-dashboard-toolbar></app-dashboard-toolbar>
+          </div>
+
+        </div>
+
+      <div style="margin: 20px; background-color: white;">
+        <router-outlet></router-outlet>
+      </div>
+      
+    </div> 
+  
+</mat-drawer-container>
+  

@@ -1,0 +1,140 @@
+<form #storeRequestForm="ngForm" class="example-form">
+    <h1>Store request header</h1>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Item request number</mat-label>
+        <input matInput name="request_number" ngModel>
+      </mat-form-field></td>
+      
+      <button mat-raised-button color="primary" (click)="getStoreRequestByRequestNumber(storeRequestForm.value)"><mat-icon>search</mat-icon>Search by Request Number</button>
+    <small *ngIf="request_by_request_number" style="color: red">Request Not found!</small>
+      <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Service requst</mat-label>
+        <input matInput name="service_number" [ngModel]="stores_request[0].service_number">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Requester</mat-label>
+        <input matInput name="requester" [ngModel]="stores_request[0].requester">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Approver</mat-label>
+        <input matInput name="approver" [ngModel]="stores_request[0].approver">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" [ngModel]="stores_request[0].part_number">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="stores_request[0].date" >
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field></td>
+    </tr></table>
+</form>
+<form #storeIssueForm="ngForm" class="example-form">
+    <h1>Store Issue detail</h1>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Issue Refference number</mat-label>
+        <input matInput name="issue_refference_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Quantity Available</mat-label>
+        <input matInput name="quantity_available" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Issue Date</mat-label>
+        <input matInput [matDatepicker]="mydatepicker2" name="issue_date" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker2></mat-datepicker>
+      </mat-form-field></td>
+      
+      
+    </tr></table>
+    <div class="example-button-row">
+      <button mat-raised-button (click)="getStoreIssue(storeIssueForm.value)"><mat-icon>search</mat-icon>Search</button>
+      <div class="space2"></div>
+      <button mat-raised-button color="primary" (click)="addStoreIssue(storeIssueForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+      
+    </div>
+    
+
+  </form>
+  
+  <h2>Results:</h2> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+<ng-container matColumnDef="request_number">
+    <th mat-header-cell *matHeaderCellDef> Request Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.request_number}} </td>
+  </ng-container>
+
+<!-- Position Column -->
+<ng-container matColumnDef="issue_refference_number">
+    <th mat-header-cell *matHeaderCellDef> Issue Ref. Number </th>
+    <td mat-cell *matCellDef="let element"> {{element.issue_refference_number}} </td>
+  </ng-container>
+
+     <!-- Position Column -->
+     <ng-container matColumnDef="part_number">
+      <th mat-header-cell *matHeaderCellDef> Part Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_number}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="quantity_available">
+        <th mat-header-cell *matHeaderCellDef> Quantity Available </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity_available}} </td>
+      </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="quantity_requested">
+      <th mat-header-cell *matHeaderCellDef> Quantity Requested </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity_requested}} </td>
+    </ng-container>
+  
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)"><mat-icon>edit</mat-icon>Edit</button>
+      </td>
+    </ng-container>
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteStoreIssue(element.request_number)"><mat-icon>delete</mat-icon>Delete</button>
+      </td>
+    </ng-container> 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<<<<<<< HEAD
+=======
+
+  
+>>>>>>> c189370c7acbb8c8fb9695b6d78a63b1576f0493

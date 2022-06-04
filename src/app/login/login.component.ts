@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from '../models/users';
@@ -27,18 +28,32 @@ export class LoginComponent implements OnInit {
   this.x =  this._users.getUser(form.username,form.password)
     .subscribe(
       (data) => {
-        this.user = data;
+        console.log(data);
+        
+        //this.user = data;
         if(data.length == 0)
         {
           this.is_registerd = false;
           return
-        }
-         if(this.user[0].type == 'admin')
-           this._router.navigate(['/dashboard']);
-         else if(this.user[0].type == 'user')
+        }else{
+          localStorage.setItem('token',data.token);
+
+         if(data.type == 'admin')
+           {
+             this._router.navigate(['/dashboard']);
+            }
+         else if(data.type == 'user')
             this._router.navigate(['/user']);
           
       }
+    },
+    err => {
+      if(err instanceof HttpErrorResponse){
+        if(err.status == 401){
+          this._router.navigate(['/login'])
+        }
+      }
+    }
     );
     
  }

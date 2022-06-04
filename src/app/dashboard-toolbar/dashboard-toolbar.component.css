@@ -1,3 +1,5 @@
 .topnavbar{
     justify-content: space-between;
+    color: blueviolet;
+    background-color: rgb(49, 43, 49);
 }

@@ -1,0 +1,41 @@
+<form #storeForm="ngForm" >
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Request Number</mat-label>
+            <input matInput name="request_number" [ngModel]="data.request_number" >
+          </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Issue Ref. Number</mat-label>
+            <input matInput name="issue_refference_number" [ngModel]="data.issue_refference_number" >
+          </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" [ngModel]="data.part_number" >
+      </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Quantity Available</mat-label>
+          <input matInput name="quantity_available" [ngModel]="data.quantity_available" >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Quantity Requested</mat-label>
+          <input matInput name="quantity_requested" [ngModel]="data.quantity_requested">
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
+          <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #mydatepicker></mat-datepicker>
+        </mat-form-field></td>
+        
+      </tr></table>
+      
+    </form>
+    
+      <mat-dialog-actions>
+          
+          <button mat-raised-button color="primary" mat-dialog-close (click)="updateStoreIssue(storeForm.value,data.no)">Update</button>
+      </mat-dialog-actions>
+      {{storeForm.value | json}}
+     

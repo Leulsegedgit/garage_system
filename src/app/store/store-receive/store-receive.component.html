@@ -1,0 +1,170 @@
+<form #storeForm="ngForm" class="example-form">
+    <h1>Store receive header</h1>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plate number</mat-label>
+        <input matInput name="plate_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Receive vocher number</mat-label>
+        <input matInput name="receive_vocher_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Receiver</mat-label>
+        <input matInput name="receiver" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Deliverer</mat-label>
+        <input matInput name="deliverer" ngModel>
+      </mat-form-field></td>
+      </tr>
+      <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Supplier</mat-label>
+        <input matInput name="supplier" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Unit price</mat-label>
+        <input matInput name="unit_price" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Quantity received</mat-label>
+        <input matInput name="quantity_received" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Quantity remaining</mat-label>
+        <input matInput name="quantity_remaining" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="date" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field></td>
+    </tr></table>
+    <h1>Store receive detail</h1>
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Part number</mat-label>
+        <input matInput name="part_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Quantity requsted</mat-label>
+        <input matInput name="Quantity" ngModel>
+      </mat-form-field></td>
+      
+      
+    </tr></table>
+    <div class="example-button-row">
+      <button mat-raised-button (click)="getStoreReceive(storeForm.value)"><mat-icon>search</mat-icon>Search</button>
+      <div class="space2"></div>
+      <button mat-raised-button color="primary" (click)="addStoreReceive(storeForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+      
+    </div>
+    
+
+  </form>
+  <h2>Results:</h2> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="plate_number">
+      <th mat-header-cell *matHeaderCellDef> Plate number </th>
+      <td mat-cell *matCellDef="let element"> {{element.plate_number}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="receive_vocher_number">
+      <th mat-header-cell *matHeaderCellDef> Receive vocher number </th>
+      <td mat-cell *matCellDef="let element"> {{element.receive_vocher_number}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="part_number">
+      <th mat-header-cell *matHeaderCellDef> Part Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_number}} </td>
+    </ng-container>
+
+     <!-- Position Column -->
+     <ng-container matColumnDef="receiver">
+      <th mat-header-cell *matHeaderCellDef> Receiver </th>
+      <td mat-cell *matCellDef="let element"> {{element.receiver}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="deliverer">
+      <th mat-header-cell *matHeaderCellDef> Deliverer </th>
+      <td mat-cell *matCellDef="let element"> {{element.deliverer}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="supplier">
+      <th mat-header-cell *matHeaderCellDef> Supplier </th>
+      <td mat-cell *matCellDef="let element"> {{element.supplier}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="refference">
+      <th mat-header-cell *matHeaderCellDef> Refference </th>
+      <td mat-cell *matCellDef="let element"> {{element.refference}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="unit_price">
+      <th mat-header-cell *matHeaderCellDef> Unit price </th>
+      <td mat-cell *matCellDef="let element"> {{element.unit_price}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="quantity_received">
+      <th mat-header-cell *matHeaderCellDef> Quantity received </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity_received}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="quantity_remaining">
+      <th mat-header-cell *matHeaderCellDef> Quantity remaining </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity_remaining}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)"><mat-icon>edit</mat-icon>Edit</button>
+      </td>
+    </ng-container>
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteStoreReceive(element.request_number)"><mat-icon>delete</mat-icon>Delete</button>
+      </td>
+    </ng-container> 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<<<<<<< HEAD
+=======
+
+  
+>>>>>>> c189370c7acbb8c8fb9695b6d78a63b1576f0493

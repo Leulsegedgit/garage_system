@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -12,6 +14,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatRadioModule} from '@angular/material/radio';  
 
 const MaterialComponents = [
     MatListModule,
@@ -27,6 +33,12 @@ const MaterialComponents = [
     MatNativeDateModule,
     MatSelectModule,
     MatTableModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatRadioModule
 ]
 @NgModule({
   
