@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="topnavbar">
+<mat-toolbar class="topnavbar">
     <div>
   <!-- <button type="button" mat-button (click)="drawer.toggle()">
     <mat-icon>dashboard</mat-icon>
@@ -12,7 +12,7 @@
   
   <mat-menu #menu="matMenu">
   <button mat-menu-item>Leulseged Wondimu</button>
-  <button mat-menu-item><mat-icon>power_settings_new</mat-icon>Log out</button>
+  <button mat-menu-item (click)="logOut()"><mat-icon>power_settings_new</mat-icon>Log out</button>
 </mat-menu>
 
 </div>

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
@@ -31,6 +31,10 @@ import { StoreIssueComponent } from './store/store-issue/store-issue.component';
 import { StoreIssueEditComponent } from './dialog/store-issue-edit/store-issue-edit.component';
 import { SpareRegistrationComponent } from './store/spare-registration/spare-registration.component';
 import { SpareRegistrationEditComponent } from './dialog/spare-registration-edit/spare-registration-edit.component';
+import { EmployeDashboardComponent } from './employe/dashboard/employe-dashboard/employe-dashboard.component';
+import { DashboardSidenavComponent } from './employe/dashboard/dashboard-sidenav/dashboard-sidenav.component';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -56,6 +60,8 @@ import { SpareRegistrationEditComponent } from './dialog/spare-registration-edit
     StoreIssueComponent,
     StoreIssueEditComponent,
     SpareRegistrationComponent,
+    EmployeDashboardComponent,
+    DashboardSidenavComponent,
     
   ],
   entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],
@@ -69,7 +75,11 @@ import { SpareRegistrationEditComponent } from './dialog/spare-registration-edit
     MaterialModule,
     
   ],
-  providers: [UsersService,RegisterService],
+  providers: [UsersService,RegisterService,AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

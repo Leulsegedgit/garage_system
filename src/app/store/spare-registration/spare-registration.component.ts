@@ -5,17 +5,17 @@ import { StoreServiceService } from 'src/app/services/store-service.service';
 
 export interface spare {
   no: number;
-  plate_number: string;
-  receive_vocher_number: string;
   part_number: string;
-  receiver: string;
-  deliverer: string;
-  supplier: string;
-  refference: string;
-  unit_price: number;
-  quantity_received: number;
-  quantity_remaining: number;
-  
+  part_name: string;
+  unit_measure: string;
+  vehicle_type: string;
+  unit_price: string;
+  store_number: number;
+  part_type: string;
+  class_type: string;
+  heavy_light: string;
+  consumable: string;
+  description: string;
   date: string;
 }
 
@@ -51,15 +51,16 @@ export class SpareRegistrationComponent implements OnInit {
   }
  
   public spares:spare[] = [
-    {no: 1,plate_number:'aa-1234',receive_vocher_number:'123-54', part_number:'345-466',receiver: 'Alemayehu' , deliverer: 'Yohannes' , supplier: 'Yohannes',refference: 'TT-56',unit_price:234.6,quantity_received:86,quantity_remaining:23,date: '12-02-2014'},
-    ];
-  displayedColumns: string[] = ['no','plate_number','receive_vocher_number','part_number', 'receiver', 'deliverer', 'supplier','refference','unit_price','quantity_received','quantity_remaining','date','edit','delete'];
+   { no: 1, part_number: '66-GH-34', part_name: 'CABLE', unit_measure: 'SET', vehicle_type: 'TOYOTA', unit_price: '949', store_number: 4, part_type: 'break system',
+    class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
+];
+
+  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type', 'unit_price', 'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
   dataSource = this.spares;
   getSpare(param:spare){
     this._store.getSpare(param).subscribe(
       (data)=>{
-       // console.log(data[0]);
-        this.spares = data;
+       this.spares = data;
         for(let i=0; i<this.spares.length; i++){
           this.spares[i].no = i+1;
         }
@@ -80,13 +81,10 @@ export class SpareRegistrationComponent implements OnInit {
     
   }
   deleteSpare(param:string){
-    console.log(param)
     this._store.deleteSpare(param).subscribe(
       (data)=>{
-        console.log(this.spares);
-         this.spares = this.spares.filter(function(el) { return el.part_number != param; }); 
- 
-         this.dataSource = this.spares;   
+        this.spares = this.spares.filter(function(el) { return el.part_number != param; }); 
+        this.dataSource = this.spares;   
       }
     )
   }
@@ -96,18 +94,19 @@ export class SpareRegistrationComponent implements OnInit {
     let index = row-1;
     
     const dialogRef = this.dialog.open(SpareRegistrationEditComponent,{data: {
-     no: row,
- plate_number: this.spares[index].plate_number,
- receive_vocher_number: this.spares[index].receive_vocher_number,
- part_number: this.spares[index].part_number,
- receiver: this.spares[index].receiver,
- deliverer: this.spares[index].deliverer,
- supplier: this.spares[index].supplier,
- refference: this.spares[index].refference,
- unit_price: this.spares[index].unit_price,
- quantity_received: this.spares[index].quantity_received,
- quantity_remaining: this.spares[index].quantity_remaining
-   
+      no: this.spares[index].no,
+      part_number: this.spares[index].part_number,
+      part_name: this.spares[index].part_name,
+      unit_measure: this.spares[index].unit_measure,
+      vehicle_type: this.spares[index].vehicle_type,
+      unit_price: this.spares[index].unit_price,
+      store_number: this.spares[index].store_number,
+      part_type: this.spares[index].part_type,
+      class_type: this.spares[index].class_type,
+      heavy_light: this.spares[index].heavy_light,
+      consumable: this.spares[index].consumable,
+      description: this.spares[index].description,
+      date: this.spares[index].date,
     }});
  
     dialogRef.afterClosed().subscribe(result => {

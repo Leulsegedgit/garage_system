@@ -14,16 +14,47 @@ import { SupplierComponent } from "./supplier/supplier.component";
 import { TechnicianComponent } from "./technician/technician.component";
 import { StoreReceiveComponent } from "./store/store-receive/store-receive.component";
 import { AllStoreComponent } from "./store/store/store.component";
+import { EmployeDashboardComponent } from "./employe/dashboard/employe-dashboard/employe-dashboard.component";
+import { AuthGuard } from "./auth.guard";
 
 
 const routes: Routes = [
     // {path:'student',loadChildren:()=>import("./login/login.component").then(m=>)}
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
-    {path: 'user', component: MainUserPageComponent},
+    {path: 'user', component: EmployeDashboardComponent,
+            canActivate: [AuthGuard],
+    children: [
+        {
+            path: '', component: DashboardhomeComponent
+        },
+        {
+            path: 'home', component: DashboardhomeComponent
+        },
+        {
+            path: 'reception', component: ReceptionComponent
+        },
+        {
+            path: 'all_store', component: AllStoreComponent
+        },
+        {
+            path: 'vehicle', component: VehicleRegistrationComponent
+        },
+        {
+            path: 'driver', component: DriverComponent
+        },
+        {
+            path: 'supplier', component: SupplierComponent
+        },
+        {
+            path: 'technician', component: TechnicianComponent
+        }
+    ]
+},
     {path: 'admin', component: MainAdminPageComponent
 },
     {path: 'dashboard', component: AdminDashboardComponent,
+            canActivate: [AuthGuard],
         children: [
             {
                 path: '', component: DashboardhomeComponent
@@ -35,7 +66,8 @@ const routes: Routes = [
                 path: 'reception', component: ReceptionComponent
             },
             {
-                path: 'all_store', component: AllStoreComponent
+                path: 'all_store', component: AllStoreComponent,
+                canActivate: [AuthGuard]
             },
             {
                 path: 'vehicle', component: VehicleRegistrationComponent

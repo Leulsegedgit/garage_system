@@ -51,9 +51,9 @@
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Issue Date</mat-label>
-        <input matInput [matDatepicker]="mydatepicker" name="issue_date" ngModel>
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker></mat-datepicker>
+        <input matInput [matDatepicker]="mydatepicker2" name="issue_date" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker2></mat-datepicker>
       </mat-form-field></td>
       
       
@@ -67,6 +67,7 @@
     
 
   </form>
+  
   <h2>Results:</h2> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

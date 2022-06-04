@@ -1,27 +1,27 @@
-<form #storeForm="ngForm" class="example-form">
+<form #spareForm="ngForm" class="example-form">
     <h1>Store receive header</h1>
   
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part number</mat-label>
-        <input matInput name="plate_number" ngModel>
+        <input matInput name="part_number" ngModel>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part Name</mat-label>
-        <input matInput name="receive_vocher_number" ngModel>
+        <input matInput name="part_name" ngModel>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Unit Measure</mat-label>
-        <mat-select>
-            <mat-option value="light">PIECE</mat-option>
-            <mat-option value="heavy">SET</mat-option>
-            <mat-option value="light">KG</mat-option>
-            <mat-option value="heavy">LIT</mat-option>
+        <mat-select name="unit_measure" ngModel>
+            <mat-option value="unit_piece">PIECE</mat-option>
+            <mat-option value="unit_set">SET</mat-option>
+            <mat-option value="unit_kg">KG</mat-option>
+            <mat-option value="unit_lit">LIT</mat-option>
             </mat-select>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Vehicle Type</mat-label>
-        <mat-select>
+        <mat-select name="vehicle_type" ngModel>
             <mat-option value="light">TOYOTA</mat-option>
             <mat-option value="heavy">TOYOTA/DU/CAPICKUP</mat-option>
             <mat-option value="light">TOYOTA 4RUNNER</mat-option>
@@ -57,23 +57,23 @@
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Store Number</mat-label>
-        <mat-select>
+        <mat-select name="store_number" ngModel>
                 <mat-option value="store_number_1">1</mat-option>
-                <mat-option value="store_number_12">2</mat-option>
-                <mat-option value="store_number_13">3</mat-option>
-                <mat-option value="store_number_14">4</mat-option>
-                <mat-option value="store_number_15">5</mat-option>
+                <mat-option value="store_number_2">2</mat-option>
+                <mat-option value="store_number_3">3</mat-option>
+                <mat-option value="store_number_4">4</mat-option>
+                <mat-option value="store_number_5">5</mat-option>
             </mat-select>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part Type</mat-label>
-          <mat-select>
+          <mat-select name="part_type" ngModel>
                   <mat-option value="part_type_break">Break System</mat-option>
                   <mat-option value="part_type_steering">Steering System</mat-option>
-                  <mat-option value="part_type_3">Suspenssion</mat-option>
-                  <mat-option value="part_type_4">Body System</mat-option>
-                  <mat-option value="part_type_5">Engine sYSTEM</mat-option>
-                  <mat-option value="part_type_5">Electric sYSTEM</mat-option>
+                  <mat-option value="part_type_suspenssion">Suspenssion</mat-option>
+                  <mat-option value="part_type_body">Body System</mat-option>
+                  <mat-option value="part_type_engine">Engine System</mat-option>
+                  <mat-option value="part_type_electric">Electric sYSTEM</mat-option>
               </mat-select>
         </mat-form-field></td>
      
@@ -104,40 +104,41 @@
     <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-label>Class type</mat-label>
             <p>
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button value="1">A</mat-radio-button>
-                <mat-radio-button value="2">B</mat-radio-button>
-                <mat-radio-button value="3">C</mat-radio-button>
-                <mat-radio-button value="4">Unkown</mat-radio-button>
+            <mat-radio-group aria-label="Select an option" name="class_type" ngModel>
+                <mat-radio-button value="A">A</mat-radio-button>
+                <mat-radio-button value="B">B</mat-radio-button>
+                <mat-radio-button value="C">C</mat-radio-button>
+                <mat-radio-button value="U">Unkown</mat-radio-button>
               </mat-radio-group>
             </p>
             </td> 
             <td><mat-label>Heavy/Light</mat-label>
                 <p>
-                <mat-radio-group aria-label="Heavy/Light">
-                    <mat-radio-button value="1">Heavy</mat-radio-button>
-                    <mat-radio-button value="2">Light</mat-radio-button>
+                <mat-radio-group aria-label="Heavy/Light" name="heavey_light" ngModel>
+                    <mat-radio-button value="heavy">Heavy</mat-radio-button>
+                    <mat-radio-button value="light">Light</mat-radio-button>
                     </mat-radio-group>
                 </p>
                 </td> 
                 <td><mat-label>Consumable</mat-label>
                     <p>
-                    <mat-radio-group aria-label="Heavy/Light">
-                        <mat-radio-button value="1">Consumable</mat-radio-button>
-                        <mat-radio-button value="2">Non Consumable</mat-radio-button>
+                    <mat-radio-group aria-label="Heavy/Light" name="consumable" ngModel>
+                        <mat-radio-button value="consumable">Consumable</mat-radio-button>
+                        <mat-radio-button value="non_consumable">Non Consumable</mat-radio-button>
                         </mat-radio-group>
                     </p>
                     </td> 
     </tr></table>
     <div class="example-button-row">
-      <button mat-raised-button (click)="getSpare(storeForm.value)"><mat-icon>search</mat-icon>Search</button>
+      <button mat-raised-button (click)="getSpare(spareForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
-      <button mat-raised-button color="primary" (click)="addSpare(storeForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+      <button mat-raised-button color="primary" (click)="addSpare(spareForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
     </div>
     
 
   </form>
+  
   <h2>Results:</h2> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -151,45 +152,45 @@
     </ng-container>
 
     <!-- Position Column -->
-    <ng-container matColumnDef="plate_number">
-      <th mat-header-cell *matHeaderCellDef> Plate number </th>
-      <td mat-cell *matCellDef="let element"> {{element.plate_number}} </td>
-    </ng-container>
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="receive_vocher_number">
-      <th mat-header-cell *matHeaderCellDef> Receive vocher number </th>
-      <td mat-cell *matCellDef="let element"> {{element.receive_vocher_number}} </td>
-    </ng-container>
-
-    <!-- Position Column -->
     <ng-container matColumnDef="part_number">
       <th mat-header-cell *matHeaderCellDef> Part Number </th>
       <td mat-cell *matCellDef="let element"> {{element.part_number}} </td>
     </ng-container>
 
+    <!-- Position Column -->
+    <ng-container matColumnDef="part_name">
+      <th mat-header-cell *matHeaderCellDef>Part Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_name}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="unit_measure">
+      <th mat-header-cell *matHeaderCellDef> Unit Measure </th>
+      <td mat-cell *matCellDef="let element"> {{element.unit_measure}} </td>
+    </ng-container>
+
      <!-- Position Column -->
-     <ng-container matColumnDef="receiver">
-      <th mat-header-cell *matHeaderCellDef> Receiver </th>
-      <td mat-cell *matCellDef="let element"> {{element.receiver}} </td>
+     <ng-container matColumnDef="part_type">
+      <th mat-header-cell *matHeaderCellDef> Part Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_type}} </td>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="deliverer">
-      <th mat-header-cell *matHeaderCellDef> Deliverer </th>
-      <td mat-cell *matCellDef="let element"> {{element.deliverer}} </td>
+    <ng-container matColumnDef="vehicle_type">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.vehicle_type}} </td>
     </ng-container>
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="supplier">
-      <th mat-header-cell *matHeaderCellDef> Supplier </th>
-      <td mat-cell *matCellDef="let element"> {{element.supplier}} </td>
+    <ng-container matColumnDef="class_type">
+      <th mat-header-cell *matHeaderCellDef> Class </th>
+      <td mat-cell *matCellDef="let element"> {{element.class_type}} </td>
     </ng-container>
 
      <!-- Weight Column -->
-     <ng-container matColumnDef="refference">
-      <th mat-header-cell *matHeaderCellDef> Refference </th>
-      <td mat-cell *matCellDef="let element"> {{element.refference}} </td>
+     <ng-container matColumnDef="store_number">
+      <th mat-header-cell *matHeaderCellDef> Store Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.store_number}} </td>
     </ng-container>
 
      <!-- Weight Column -->
@@ -199,21 +200,21 @@
     </ng-container>
   
     <!-- Symbol Column -->
-    <ng-container matColumnDef="quantity_received">
-      <th mat-header-cell *matHeaderCellDef> Quantity received </th>
-      <td mat-cell *matCellDef="let element"> {{element.quantity_received}} </td>
+    <ng-container matColumnDef="heavy_light">
+      <th mat-header-cell *matHeaderCellDef> Heavy/Light </th>
+      <td mat-cell *matCellDef="let element"> {{element.heavey_light}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="quantity_remaining">
-      <th mat-header-cell *matHeaderCellDef> Quantity remaining </th>
-      <td mat-cell *matCellDef="let element"> {{element.quantity_remaining}} </td>
+    <ng-container matColumnDef="consumable">
+      <th mat-header-cell *matHeaderCellDef> Consumable </th>
+      <td mat-cell *matCellDef="let element"> {{element.consumable}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
     </ng-container>
     
     <!-- Symbol Column -->
@@ -225,7 +226,7 @@
      <!-- Symbol Column -->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteSpare(element.request_number)"><mat-icon>delete</mat-icon>Delete</button>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteSpare(element.part_number)"><mat-icon>delete</mat-icon>Delete</button>
       </td>
     </ng-container> 
 
