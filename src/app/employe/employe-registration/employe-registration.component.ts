@@ -60,7 +60,7 @@ export class EmployeRegistrationComponent implements OnInit {
 }
 ];
 
-  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type', 'unit_price', 'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','employe_id','name','proffesion', 'vehicle_type', 'unit_price', 'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
   dataSource = this.employees;
   getEmploye(param:employe){
     this._employe.getEmploye(param).subscribe(
