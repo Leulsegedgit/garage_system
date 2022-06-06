@@ -17,7 +17,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatRadioModule} from '@angular/material/radio';  
+import {MatRadioModule} from '@angular/material/radio'; 
+import {MatCardModule} from '@angular/material/card';
 
 const MaterialComponents = [
     MatListModule,
@@ -38,7 +39,8 @@ const MaterialComponents = [
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCardModule 
 ]
 @NgModule({
   

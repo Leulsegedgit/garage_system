@@ -35,6 +35,7 @@ import { EmployeDashboardComponent } from './employe/dashboard/employe-dashboard
 import { DashboardSidenavComponent } from './employe/dashboard/dashboard-sidenav/dashboard-sidenav.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { EmployeRegistrationComponent } from './employe/employe-registration/employe-registration.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     SpareRegistrationComponent,
     EmployeDashboardComponent,
     DashboardSidenavComponent,
+    EmployeRegistrationComponent,
     
   ],
   entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],
