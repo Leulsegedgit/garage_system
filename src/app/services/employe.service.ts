@@ -18,10 +18,10 @@ export class EmployeService {
 
   //spare
   getEmploye(param:employe): Observable<employe[]>{
-    return  this.http.post<employe[]>("http://localhost:3000/api/getspare",param);
+    return  this.http.post<employe[]>("http://localhost:3000/api/getemploye",param);
     }
   addEmploye(param:employe): Observable<employe[]>{
-      return  this.http.post<employe[]>("http://localhost:3000/api/addspare",param).pipe(
+      return  this.http.post<employe[]>("http://localhost:3000/api/addemploye",param).pipe(
         tap(()=>{
           this.RefreashRequired.next();
         }
@@ -32,7 +32,7 @@ export class EmployeService {
       updateEmploye(row:any){
         let body = [row];
        console.log(body)
-        this.http.put("http://localhost:3000/api/editspare/",row).subscribe(
+        this.http.put("http://localhost:3000/api/editemploye/",row).subscribe(
           data =>{
             console.log(data)
           }
@@ -41,7 +41,7 @@ export class EmployeService {
         this.RefreashRequired.next();
       }
   deleteEmploye(id:string){
-        return this.http.delete("http://localhost:3000/api/deletespare/"+id);
+        return this.http.delete("http://localhost:3000/api/deleteemploye/"+id);
       }
     
 }

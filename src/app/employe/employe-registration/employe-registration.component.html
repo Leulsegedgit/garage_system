@@ -22,7 +22,7 @@
 
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Full Name</mat-label>
-        <input matInput name="employe_full_name" ngModel>
+        <input matInput name="name" ngModel>
       </mat-form-field></td>
 
       <td><mat-form-field class="example-full-width" appearance="fill">
@@ -97,7 +97,7 @@
   
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Mastebaberiya</mat-label>
-            <mat-select name="responsiblity" ngModel>
+            <mat-select name="mastebaberiya" ngModel>
                     <mat-option value="responxibility_director">Director</mat-option>
                     <mat-option value="store_number_2">XXXXXXXX</mat-option>
                     <mat-option value="store_number_3">XXXXXXXX</mat-option>
@@ -109,7 +109,7 @@
           
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Team</mat-label>
-            <mat-select name="department" ngModel>
+            <mat-select name="team" ngModel>
                     <mat-option value="department">Ethiopian Police Unversity College</mat-option>
                     <mat-option value="part_type_steering">Steering System</mat-option>
                     <mat-option value="part_type_suspenssion">Suspenssion</mat-option>
@@ -121,7 +121,7 @@
        
           <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Education Level</mat-label>
-                <mat-select name="education" ngModel>
+                <mat-select name="level" ngModel>
                         <mat-option value="education_10">10th</mat-option>
                         <mat-option value="part_type_steering">12th</mat-option>
                         <mat-option value="part_type_suspenssion">Unversity</mat-option>
@@ -133,7 +133,7 @@
       </tr>
       <tr>
         <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Emoloyee Type</mat-label>
+            <mat-label>Employe Type</mat-label>
               <mat-select name="type" ngModel>
                       <mat-option value="type_military">MILITARY</mat-option>
                       <mat-option value="store_number_2">XXXXXXXX</mat-option>
@@ -145,19 +145,19 @@
 
         <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Salary</mat-label>
-            <input matInput name="employe_id" ngModel>
+            <input matInput name="salary" ngModel>
           </mat-form-field></td>
 
           <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Birth Date</mat-label>
-            <input matInput [matDatepicker]="mydatepicker" name="date" ngModel>
+            <input matInput [matDatepicker]="mydatepicker" name="birth_date" ngModel>
             <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
             <mat-datepicker #mydatepicker></mat-datepicker>
           </mat-form-field></td>
 
           <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Hired Date</mat-label>
-            <input matInput [matDatepicker]="mydatepicker2" name="date" ngModel>
+            <input matInput [matDatepicker]="mydatepicker2" name="hire_date" ngModel>
             <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
             <mat-datepicker #mydatepicker2></mat-datepicker>
           </mat-form-field></td>
@@ -175,6 +175,7 @@
 </mat-card>
   </form>
   <mat-card>
+    {{employeForm.value | json }}
   <h2>Results:</h2> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -230,7 +231,7 @@
     </ng-container>
 
      <!-- Weight Column -->
-     <ng-container matColumnDef="Salary">
+     <ng-container matColumnDef="salary">
       <th mat-header-cell *matHeaderCellDef> Salary </th>
       <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
     </ng-container>
@@ -240,17 +241,17 @@
       <th mat-header-cell *matHeaderCellDef> Level </th>
       <td mat-cell *matCellDef="let element"> {{element.level}} </td>
     </ng-container>
-    
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" ><mat-icon>edit</mat-icon>Edit</button>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)"><mat-icon>edit</mat-icon>Edit</button>
       </td>
     </ng-container>
      <!-- Symbol Column -->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent"><mat-icon>delete</mat-icon>Delete</button>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteEmploye(element.employe_id)"><mat-icon>delete</mat-icon>Delete</button>
       </td>
     </ng-container> 
 
