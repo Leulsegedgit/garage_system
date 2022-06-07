@@ -5,6 +5,8 @@ import { StoreServiceService } from 'src/app/services/store-service.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map,startWith } from 'rxjs/operators';
+import { EmployeService } from 'src/app/services/employe.service';
+import { HelperFunctionsService } from 'src/app/services/helper-functions.service';
 
 export interface store_request {
   no: number;
@@ -33,7 +35,7 @@ export interface store_request {
 export class StoreRequestComponent implements OnInit {
 
    
-  constructor(private _store:StoreServiceService,public dialog: MatDialog) { 
+  constructor(private _store:StoreServiceService,private _helper:HelperFunctionsService,public dialog: MatDialog) { 
 
   }
 
@@ -75,6 +77,21 @@ private filterNames(name:string): string[]{
     {no: 5, part_number:'632-63-264',request_number: '1238' , service_number: '127' , requester: 'Mehariw',approver: 'Melak',date: '06-5-2014'}  
   ];
   names: string[] = ['Getnet','Leulseged','Mehariw','Zelalem'];
+  getNames(starting:any){
+    let names:any = []
+    console.log(starting)
+      this._helper.getNames(starting).subscribe(
+        (data)=>{
+          names = data;
+          console.log(names)
+          for(let i=0; i<names.length; i++){
+            this.names[i]=names[i].name
+            
+          }
+         
+        }
+      )
+  }
   myControl = new FormControl();
   filteredNames: Observable<string[]> | undefined;
 
