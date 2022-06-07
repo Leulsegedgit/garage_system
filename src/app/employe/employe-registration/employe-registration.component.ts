@@ -6,16 +6,17 @@ import { EmployeService } from 'src/app/services/employe.service';
 export interface employe {
   no: number;
   employe_id: string;
+  title:string;
   name: string;
   gender: string;
   profession: string;
   responsiblity: string;
   department: string;
-  diractorate: string;
+  directorate: string;
   division: string;
   mastebaberiya: string;
   team: string;
-  education_level: string;
+  level: string;
   type: string;
   salary: number;
   birth_date: string;
@@ -55,12 +56,12 @@ export class EmployeRegistrationComponent implements OnInit {
  
   public employees:employe[] = [
     {
-       no: 1, employe_id: 'EMP-123', name: 'Yohannes Teklie', gender: 'MALE', profession: 'DRIVER', responsiblity: 'RES', department: 'A', diractorate: 'B',
-  division: 'C', mastebaberiya: 'D', team: 'L', education_level: 'Degree', type: 'A', salary: 9786.65, birth_date: '12-08-94',hire_date: '22-10-19'
+       no: 1, employe_id: 'EMP-123',title:'Ato', name: 'Yohannes Teklie', gender: 'MALE', profession: 'DRIVER', responsiblity: 'RES', department: 'A', directorate: 'B',
+  division: 'C', mastebaberiya: 'D', team: 'L', 'level': 'Degree', type: 'A', salary: 9786.65, birth_date: '12-08-94',hire_date: '22-10-19'
 }
 ];
 
-  displayedColumns: string[] = ['no','employe_id','name','proffesion', 'vehicle_type', 'unit_price', 'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','employe_id','name','profession', 'department', 'directorate', 'division','team','salary','level','edit','delete'];
   dataSource = this.employees;
   getEmploye(param:employe){
     this._employe.getEmploye(param).subscribe(
@@ -70,7 +71,7 @@ export class EmployeRegistrationComponent implements OnInit {
           this.employees[i].no = i+1;
         }
         this.dataSource = this.employees;
-      }
+        }
     )
   }
   addEmploye(param:employe){
@@ -101,16 +102,17 @@ export class EmployeRegistrationComponent implements OnInit {
     const dialogRef = this.dialog.open(SpareRegistrationEditComponent,{data: {
       no: this.employees[index].no,
       employe_id: this.employees[index].employe_id,
+      title:this.employees[index].title,
       name: this.employees[index].name,
       gender: this.employees[index].gender,
       profession: this.employees[index].profession,
       responsiblity: this.employees[index].responsiblity,
       department: this.employees[index].department,
-      diractorate: this.employees[index].diractorate,
+      directorate: this.employees[index].directorate,
       division: this.employees[index].division,
       mastebaberiya: this.employees[index].mastebaberiya,
       team: this.employees[index].team,
-      education_level: this.employees[index].education_level,
+      level: this.employees[index].level,
       type: this.employees[index].type,
       salary: this.employees[index].salary,
       birth_date: this.employees[index].birth_date,
