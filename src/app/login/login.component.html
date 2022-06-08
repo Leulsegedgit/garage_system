@@ -1,31 +1,34 @@
-  <head>
-    
-  </head>
-  
-   
-   <div id="title"> 
-        Federal Police Commission Garage 
+<div class="background">
+  <mat-card>
+    <div id="title">
+      Federal Police Commission Garage System
     </div>
     <div class="imgcontainer">
-      <img src="../../assets/federal_logo_2.png" alt="Logo" class="avatar" >
+      <img src="../../assets/federal_logo_2.png" alt="Logo" class="avatar">
     </div>
-    <br><br><br><br><br><br><br><br><br>
-    <br><br><br>
-    <br>
-<form #userForm="ngForm">
-   <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input  #usernameinput  type="text" placeholder="Enter Username" name="username" required ngModel>
-       <label for="psw"><b>Password</b></label>
-      <input type="password"  #passwordinput="ngModel" [class.ng-invalid2]="passwordinput.invalid && passwordinput.touched" placeholder="Enter Password" name="password"  required ngModel>
-      <small *ngIf="!is_registerd" style="color: red;">Username or Password incorrect!</small>
-      <button type="submit"  (click)="log(userForm.value)"> Login </button>
-      <nav>
-     
-    </nav>
-    </div>
-</form>
-    <div class="container" style="background-color:#f1f1f1">
-      <span class="psw">Forgot <a routerLink="/register">password?</a></span>
-    </div>
-    
+    <mat-card-content>
+      <form #userForm="ngForm">
+        <h2>Login here</h2>
+        <mat-error *ngIf="!is_registerd">
+          The username and password were not recognized
+        </mat-error>
+        <mat-form-field>
+          <input matInput #usernameinput type="text" placeholder="Enter Username" name="username" required ngModel>
+          <mat-error>
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" #passwordinput="ngModel"
+            [class.ng-invalid2]="passwordinput.invalid && passwordinput.touched" placeholder="Enter Password"
+            name="password" required ngModel>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <button class="button" type="submit" (click)="log(userForm.value)" mat-raised-button color="#0e2c50"
+          [disabled]="!userForm.form.valid">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  </div>
