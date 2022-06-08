@@ -1,5 +1,9 @@
 <form #storeRequestForm="ngForm" class="example-form">
-    <h1>Store request header</h1>
+  <mat-card>
+    <mat-card-title>
+    Store Issue Header
+  </mat-card-title>
+  <mat-card-content>
   
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
@@ -33,9 +37,16 @@
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
     </tr></table>
+  </mat-card-content>
+</mat-card>
 </form>
+
 <form #storeIssueForm="ngForm" class="example-form">
-    <h1>Store Issue detail</h1>
+  <mat-card>
+    <mat-card-title>
+    Store Issue Detail
+  </mat-card-title>
+  <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Issue Refference number</mat-label>
@@ -55,20 +66,25 @@
         <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
         <mat-datepicker #mydatepicker2></mat-datepicker>
       </mat-form-field></td>
-      
-      
-    </tr></table>
+       </tr></table>
+   </mat-card-content>
+   <mat-card-actions align="end">
     <div class="example-button-row">
       <button mat-raised-button (click)="getStoreIssue(storeIssueForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
       <button mat-raised-button color="primary" (click)="addStoreIssue(storeIssueForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
     </div>
-    
+  </mat-card-actions>
 
-  </form>
-  
-  <h2>Results:</h2> 
+</mat-card>
+
+</form>
+<mat-card>
+  <mat-card-title>
+<h2>Results:</h2>
+</mat-card-title>
+<mat-card-content> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -133,6 +149,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</mat-card-content>
+</mat-card>
 <<<<<<< HEAD
 =======
 
