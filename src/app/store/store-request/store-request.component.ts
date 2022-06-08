@@ -51,7 +51,7 @@ export class StoreRequestComponent implements OnInit {
   this.deleteStoreRequest('0');
       }
     );
-    
+    //comment something
     this._store.RefreashRequired.subscribe(
       response=>{
         
