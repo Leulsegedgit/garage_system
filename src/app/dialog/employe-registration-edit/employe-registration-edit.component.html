@@ -3,27 +3,31 @@
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Employe Id</mat-label>
-        <input matInput name="part_number" [ngModel]="data.part_number" >
+        <input matInput name="employe_id" [ngModel]="data.part_number" >
       </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Title</mat-label>
-          <input matInput name="request_number" [ngModel]="data.request_number" >
+          <input matInput name="title" [ngModel]="data.request_number" >
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Full name</mat-label>
-          <input matInput name="service_number" [ngModel]="data.service_number">
+          <mat-label>Gender</mat-label>
+          <input matInput name="gender" [ngModel]="data.service_number">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Requester</mat-label>
-          <input matInput name="requester" [ngModel]="data.requester">
+          <mat-label>Profession</mat-label>
+          <input matInput name="profession" [ngModel]="data.requester">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Approver</mat-label>
-          <input matInput name="approver" [ngModel]="data.approver">
+          <mat-label>Responsibility</mat-label>
+          <input matInput name="responsibility" [ngModel]="data.approver">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Date</mat-label>
-          <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
+            <mat-label>Type</mat-label>
+            <input matInput name="type" [ngModel]="data.approver">
+          </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Birth date</mat-label>
+          <input  matInput [matDatepicker]="mydatepicker" name="birth_date" [ngModel]="data.birth_date" placeholder="{{data.birth_date}}">
           <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
           <mat-datepicker #mydatepicker></mat-datepicker>
         </mat-form-field></td>
@@ -31,30 +35,34 @@
       </tr>
       <tr>
         <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Part number</mat-label>
-            <input matInput name="part_number" [ngModel]="data.part_number" >
+            <mat-label>Directorate</mat-label>
+            <input matInput name="directorate" [ngModel]="data.part_number" >
           </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Request number</mat-label>
-              <input matInput name="request_number" [ngModel]="data.request_number" >
+              <mat-label>Division</mat-label>
+              <input matInput name="division" [ngModel]="data.request_number" >
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Service request</mat-label>
-              <input matInput name="service_number" [ngModel]="data.service_number">
+              <mat-label>Mastebaberiya</mat-label>
+              <input matInput name="mastebaberiya" [ngModel]="data.service_number">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Requester</mat-label>
-              <input matInput name="requester" [ngModel]="data.requester">
+              <mat-label>Team</mat-label>
+              <input matInput name="team" [ngModel]="data.requester">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Approver</mat-label>
-              <input matInput name="approver" [ngModel]="data.approver">
+              <mat-label>Level</mat-label>
+              <input matInput name="level" [ngModel]="data.approver">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Date</mat-label>
-              <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
-              <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-              <mat-datepicker #mydatepicker></mat-datepicker>
+                <mat-label>Salary</mat-label>
+                <input matInput name="salary" [ngModel]="data.approver">
+              </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Hire Date</mat-label>
+              <input  matInput [matDatepicker]="mydatepicker2" name="hire_date" [ngModel]="data.hire_date" placeholder="{{data.hire_date}}">
+              <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
+              <mat-datepicker #mydatepicker2></mat-datepicker>
             </mat-form-field></td> 
       </tr>
     

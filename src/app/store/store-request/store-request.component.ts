@@ -47,10 +47,11 @@ export class StoreRequestComponent implements OnInit {
   console.log(row.no);
   
   this.stores[row.no-1] = row;
-  this.dataSource = this.stores;
+  this.dataSource = this.stores; 
   this.deleteStoreRequest('0');
       }
     );
+    //comment something
     this._store.RefreashRequired.subscribe(
       response=>{
         
