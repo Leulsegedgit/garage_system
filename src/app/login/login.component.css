@@ -1,8 +1,5 @@
-/* Bordered form */
-
-  
-  /* Full-width inputs */
-  input[type=text], input[type=password] {
+input[type=text],
+  input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -10,10 +7,10 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-  
+
   /* Set a style for all buttons */
   button {
-    background-color: #04AA6D;
+    background-color: #0e2c50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -21,40 +18,52 @@
     cursor: pointer;
     width: 100%;
   }
-  
+
   /* Add a hover effect for buttons */
   button:hover {
     opacity: 0.8;
   }
-  
- 
+
+
   /* Center the avatar image inside this container */
   .imgcontainer {
     text-align: center;
     align-content: center;
+    margin-top: 50px;
     width: 20%;
     height: 20%;
-   
+
   }
-  
-  
+
+
   /* Add padding to containers */
   .container {
-    padding: 16px;
+    padding: 32px;
     float: right;
   }
-  
+
   /* The "Forgot password" text */
   span.psw {
     float: right;
     padding-top: 16px;
-}
-.ng-invalid2 {
-  color: red;
-}
-  
-  
-  #title{
-      color: #04AA6D;
-      font-size: 250%;
+  }
+
+  .ng-invalid2 {
+    color: red;
+  }
+
+
+  #title {
+    color: #0e2c50;
+    font-size: 200%;
+  }
+
+  mat-card {
+    max-width: 600px;
+    margin: 2em auto;
+    text-align: center;
+  }
+
+  mat-form-field {
+    display: block;
   }

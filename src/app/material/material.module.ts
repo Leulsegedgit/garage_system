@@ -19,6 +19,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio'; 
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const MaterialComponents = [
     MatListModule,
@@ -40,7 +41,8 @@ const MaterialComponents = [
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatCardModule 
+    MatCardModule,
+    MatFormFieldModule
 ]
 @NgModule({
   

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { EmployeRegistrationEditComponent } from 'src/app/dialog/employe-registration-edit/employe-registration-edit.component';
 import { SpareRegistrationEditComponent } from 'src/app/dialog/spare-registration-edit/spare-registration-edit.component';
 import { EmployeService } from 'src/app/services/employe.service';
 
@@ -99,7 +100,7 @@ export class EmployeRegistrationComponent implements OnInit {
   openDialog(row:any): void {
     let index = row-1;
     
-    const dialogRef = this.dialog.open(SpareRegistrationEditComponent,{data: {
+    const dialogRef = this.dialog.open(EmployeRegistrationEditComponent,{data: {
       no: this.employees[index].no,
       employe_id: this.employees[index].employe_id,
       title:this.employees[index].title,

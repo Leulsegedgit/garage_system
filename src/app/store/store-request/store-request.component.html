@@ -15,7 +15,7 @@
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Requester</mat-label>
-        <input matInput name="requester" ngModel [matAutocomplete]="auto" [formControl]="myControl">
+        <input matInput name="requester" ngModel [matAutocomplete]="auto" [formControl]="myControl" oninput="getNames(this.value)">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let name of filteredNames | async" [value]="name">
             {{name}}
@@ -138,3 +138,4 @@
   </table>
 </mat-card-content>
 </mat-card>
+<button mat-button color="primary"><mat-icon>edit</mat-icon>Edit</button>

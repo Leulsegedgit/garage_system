@@ -26,36 +26,34 @@ export class LoginComponent implements OnInit {
     
     
   this.x =  this._users.getUser(form.username,form.password)
-    .subscribe(
-      (data) => {
-        console.log(data);
-        
-        //this.user = data;
-        if(data.length == 0)
-        {
-          this.is_registerd = false;
-          return
-        }else{
-          localStorage.setItem('token',data.token);
+  .subscribe(
+    (data) => {
+      
+      if(data == null)
+      {
+        this.is_registerd = false;
+        return
+      }else{
+        this.is_registerd = true
+        localStorage.setItem('token',data.token);
 
-         if(data.type == 'admin')
-           {
-             this._router.navigate(['/dashboard']);
-            }
-         else if(data.type == 'user')
-            this._router.navigate(['/user']);
-          
-      }
-    },
-    err => {
-      if(err instanceof HttpErrorResponse){
-        if(err.status == 401){
-          this._router.navigate(['/login'])
-        }
+       if(data.type == 'admin')
+         {
+           this._router.navigate(['/dashboard']);
+          }
+       else if(data.type == 'user')
+          this._router.navigate(['/user']);
+        
+    }
+  },
+  err => {
+    if(err instanceof HttpErrorResponse){
+      if(err.status == 401){
+        this._router.navigate(['/login'])
       }
     }
-    );
-    
- }
-
+  }
+  );
+  
+}
 }
