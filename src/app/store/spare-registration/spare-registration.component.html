@@ -1,5 +1,10 @@
 <form #spareForm="ngForm" class="example-form">
-    <h1>Store receive header</h1>
+
+    <mat-card>
+    <mat-card-title>
+    Store Registration Header
+  </mat-card-title>
+  <mat-card-content>
   
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
@@ -97,12 +102,18 @@
             <mat-label>Description</mat-label>
             <input matInput name="description" ngModel>
           </mat-form-field></td>
-    </tr>
-
-</table>
-    <h1>Store receive detail</h1>
+    </tr></table>
+  </mat-card-content>
+</mat-card>
+  <mat-card>
+  <mat-card-title>
+  Store Receive Detail
+</mat-card-title>
+<mat-card-content>
+  <div><br><br></div>
     <table class="example-full-width" cellspacing="0"><tr>
         <td><mat-label>Class type</mat-label>
+          <br>
             <p>
             <mat-radio-group aria-label="Select an option" name="class_type" ngModel>
                 <mat-radio-button value="A">A</mat-radio-button>
@@ -113,6 +124,7 @@
             </p>
             </td> 
             <td><mat-label>Heavy/Light</mat-label>
+              <br>
                 <p>
                 <mat-radio-group aria-label="Heavy/Light" name="heavey_light" ngModel>
                     <mat-radio-button value="heavy">Heavy</mat-radio-button>
@@ -121,6 +133,7 @@
                 </p>
                 </td> 
                 <td><mat-label>Consumable</mat-label>
+                  
                     <p>
                     <mat-radio-group aria-label="Heavy/Light" name="consumable" ngModel>
                         <mat-radio-button value="consumable">Consumable</mat-radio-button>
@@ -129,17 +142,24 @@
                     </p>
                     </td> 
     </tr></table>
+  </mat-card-content>
+  <mat-card-actions align="end">
     <div class="example-button-row">
       <button mat-raised-button (click)="getSpare(spareForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
       <button mat-raised-button color="primary" (click)="addSpare(spareForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
     </div>
-    
+  </mat-card-actions>
+  
+</mat-card>
 
   </form>
-  
-  <h2>Results:</h2> 
+  <mat-card>
+    <mat-card-title>
+  <h2>Results:</h2>
+</mat-card-title>
+<mat-card-content> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -233,3 +253,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</mat-card-content>
+</mat-card>
