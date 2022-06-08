@@ -1,0 +1,69 @@
+<form #storeForm="ngForm" >
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Employe Id</mat-label>
+        <input matInput name="part_number" [ngModel]="data.part_number" >
+      </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput name="request_number" [ngModel]="data.request_number" >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Full name</mat-label>
+          <input matInput name="service_number" [ngModel]="data.service_number">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Requester</mat-label>
+          <input matInput name="requester" [ngModel]="data.requester">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Approver</mat-label>
+          <input matInput name="approver" [ngModel]="data.approver">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
+          <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #mydatepicker></mat-datepicker>
+        </mat-form-field></td>
+        
+      </tr>
+      <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Part number</mat-label>
+            <input matInput name="part_number" [ngModel]="data.part_number" >
+          </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Request number</mat-label>
+              <input matInput name="request_number" [ngModel]="data.request_number" >
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Service request</mat-label>
+              <input matInput name="service_number" [ngModel]="data.service_number">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Requester</mat-label>
+              <input matInput name="requester" [ngModel]="data.requester">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Approver</mat-label>
+              <input matInput name="approver" [ngModel]="data.approver">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Date</mat-label>
+              <input  matInput [matDatepicker]="mydatepicker" name="date" [ngModel]="data.date" placeholder="{{data.date}}">
+              <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #mydatepicker></mat-datepicker>
+            </mat-form-field></td> 
+      </tr>
+    
+    </table>
+      
+    </form>
+    
+      <mat-dialog-actions>
+          
+          <button mat-raised-button color="primary" mat-dialog-close (click)="updateEmployeRegistration(storeForm.value,data.no)">Update</button>
+      </mat-dialog-actions>
+     
