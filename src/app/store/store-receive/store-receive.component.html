@@ -52,7 +52,11 @@
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part number</mat-label>
         <input matInput name="part_number" ngModel>
-      </mat-form-field></td>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="getByPartNumber(storeForm.value.part_number)" ><mat-icon>search</mat-icon>Search By Part No.</button>
+      <br>
+      {{partName}}
+    </td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Quantity requsted</mat-label>
         <input matInput name="Quantity" ngModel>
@@ -163,8 +167,3 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-<<<<<<< HEAD
-=======
-
-  
->>>>>>> c189370c7acbb8c8fb9695b6d78a63b1576f0493

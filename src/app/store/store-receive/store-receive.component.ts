@@ -55,6 +55,7 @@ export class StoreReceiveComponent implements OnInit {
  public stores:store_receive[] = [
    {no: 1,plate_number:'aa-1234',receive_vocher_number:'123-54', part_number:'345-466',receiver: 'Alemayehu' , deliverer: 'Yohannes' , supplier: 'Yohannes',refference: 'TT-56',unit_price:234.6,quantity_received:86,quantity_remaining:23,date: '12-02-2014'},
    ];
+   partName = "";
  displayedColumns: string[] = ['no','plate_number','receive_vocher_number','part_number', 'receiver', 'deliverer', 'supplier','refference','unit_price','quantity_received','quantity_remaining','date','edit','delete'];
  dataSource = this.stores;
  getStoreReceive(param:store_receive){
@@ -118,7 +119,20 @@ quantity_remaining: this.stores[index].quantity_remaining
    });
 
 }
-
+getByPartNumber(part_number:string){
+  this._store.getByPartNumber(part_number).subscribe(
+    data=>{
+      if(data.length == 0)
+      this.partName = ""
+      else
+      this.partName = data[0].part_name;
+      
+    },
+    err=>{
+      this.partName = ""
+    }
+  )
+}
 
 }
 

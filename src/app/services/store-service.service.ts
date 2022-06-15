@@ -78,7 +78,9 @@ export class StoreServiceService {
   deleteStoreRequest(id:string){
         return this.http.delete("http://localhost:3000/api/deletestorerequest/"+id);
       }
-    
+      getByPartNumber(part_number:string): Observable<any>{
+        return  this.http.get<any>("http://localhost:3000/api/getbypartnumber/"+part_number);
+        }
     //Store receive
     getStoreReceive(param:store_receive): Observable<store_receive[]>{
       return  this.http.post<store_receive[]>("http://localhost:3000/api/getstorereceive",param);
@@ -154,7 +156,7 @@ export class StoreServiceService {
        console.log(body)
         this.http.put("http://localhost:3000/api/editspare/",row).subscribe(
           data =>{
-            console.log(data)
+            //console.log(data)
           }
         )
         this._updaterow.next(row);

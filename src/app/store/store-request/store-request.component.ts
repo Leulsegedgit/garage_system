@@ -77,14 +77,14 @@ private filterNames(name:string): string[]{
     {no: 4, part_number:'424-6462-63',request_number: '1237' , service_number: '126' , requester: 'Leulseged',approver: 'Wondimu',date: '12-02-2014'},
     {no: 5, part_number:'632-63-264',request_number: '1238' , service_number: '127' , requester: 'Mehariw',approver: 'Melak',date: '06-5-2014'}  
   ];
+  partName = "";
+  print = false;
   names: string[] = ['Getnet','Leulseged','Mehariw','Zelalem'];
   getNames(starting:any){
     let names:any = []
-    console.log(starting)
-      this._helper.getNames(starting).subscribe(
+    this._helper.getNames(starting).subscribe(
         (data)=>{
           names = data;
-          console.log(names)
           for(let i=0; i<names.length; i++){
             this.names[i]=names[i].name
             
@@ -155,7 +155,25 @@ private filterNames(name:string): string[]{
     });
 
 }
-
+getByPartNumber(part_number:string){
+  
+  this._store.getByPartNumber(part_number).subscribe(
+    data=>{
+      if(data.length == 0)
+      this.partName = ""
+      else
+      this.partName = data[0].part_name;
+      
+    },
+    err=>{
+      this.partName = ""
+    }
+  )
+}
+printData(){
+  this.print = true;
+  window.print()
+}
 
 }
 

@@ -55,7 +55,7 @@ export class SpareRegistrationComponent implements OnInit {
     class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
 ];
 
-  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type', 'unit_price', 'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
   dataSource = this.spares;
   getSpare(param:spare){
     this._store.getSpare(param).subscribe(

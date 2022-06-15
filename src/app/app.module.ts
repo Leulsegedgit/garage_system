@@ -66,6 +66,7 @@ import { EmployeRegistrationEditComponent } from './dialog/employe-registration-
     DashboardSidenavComponent,
     EmployeRegistrationComponent,
     EmployeRegistrationEditComponent,
+    SpareRegistrationEditComponent
     
   ],
   entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],

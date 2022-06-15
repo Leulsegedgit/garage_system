@@ -47,6 +47,7 @@ export class StoreIssueComponent implements OnInit {
   public stores:store_issue[] = [
     {no: 1, request_number: '1234' , issue_refference_number: '123' , part_number: 'Yohannes',quantity_available: 67, quantity_requested: 12,date: '12-02-2014'},
     ];
+    partName = "";
     public stores_request:store_request[] = [
       {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',date: ''}
     ];
@@ -125,6 +126,19 @@ getStoreRequestByRequestNumber(param:store_request){
       }
   )
 }
-
+getByPartNumber(part_number:string){
+  this._store.getByPartNumber(part_number).subscribe(
+    data=>{
+      if(data.length == 0)
+      this.partName = ""
+      else
+      this.partName = data[0].part_name;
+      
+    },
+    err=>{
+      this.partName = ""
+    }
+  )
+}
 }
 

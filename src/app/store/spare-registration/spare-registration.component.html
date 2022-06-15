@@ -1,6 +1,9 @@
 <form #spareForm="ngForm" class="example-form">
+  <mat-card>
+    <mat-card-title>
     <h1>Store receive header</h1>
-  
+  </mat-card-title>
+  <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part number</mat-label>
@@ -129,13 +132,16 @@
                     </p>
                     </td> 
     </tr></table>
+  </mat-card-content>
+  <mat-card-actions align="end">
     <div class="example-button-row">
       <button mat-raised-button (click)="getSpare(spareForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
       <button mat-raised-button color="primary" (click)="addSpare(spareForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
     </div>
-    
+  </mat-card-actions>
+  </mat-card>
 
   </form>
   

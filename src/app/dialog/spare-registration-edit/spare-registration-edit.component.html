@@ -1,1 +1,107 @@
-<p>spare-registration-edit works!</p>
+<form #storeForm="ngForm" >
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Part number</mat-label>
+          <input matInput name="part_number"  [ngModel]="data.part_number">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Part Name</mat-label>
+          <input matInput name="part_name"  [ngModel]="data.part_name">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Unit Measure</mat-label>
+          <mat-select name="unit_measure"  [ngModel]="data.unit_measure">
+              <mat-option value="unit_piece">PIECE</mat-option>
+              <mat-option value="unit_set">SET</mat-option>
+              <mat-option value="unit_kg">KG</mat-option>
+              <mat-option value="unit_lit">LIT</mat-option>
+              </mat-select>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Vehicle Type</mat-label>
+          <mat-select name="vehicle_type"  [ngModel]="data.vehicle_type">
+              <mat-option value="light">TOYOTA</mat-option>
+              <mat-option value="heavy">TOYOTA/DU/CAPICKUP</mat-option>
+              <mat-option value="light">TOYOTA 4RUNNER</mat-option>
+              <mat-option value="heavy">TOYOTA AUTOMOBILE</mat-option>
+              <mat-option value="light">TOYOTA COROLA</mat-option>
+              <mat-option value="heavy">TOYOTA LA/HARDTOP</mat-option>
+              <mat-option value="light">TOYOTA LA/STA/WAGEN</mat-option>
+              <mat-option value="heavy">ORAL</mat-option>
+              <mat-option value="light">ORAL CARGO</mat-option>
+              <mat-option value="heavy">PAGO</mat-option>
+              <mat-option value="light">OPEL</mat-option>
+              <mat-option value="heavy">TOYOTA AUTOMOBILE</mat-option>
+              <mat-option value="light">TATA BUS</mat-option>
+              <mat-option value="heavy">TOYOTA LA/HARDTOP</mat-option>
+              <mat-option value="light">TATA DAEWOO</mat-option>
+              <mat-option value="heavy">SUZIKI MO/CL</mat-option>
+              <mat-option value="light">SPORTAGE AUTOMOBILE</mat-option>
+              <mat-option value="heavy">MERCEDES</mat-option>
+              <mat-option value="light">MISTBUSH</mat-option>
+              <mat-option value="heavy">BEIBEN</mat-option>
+              <mat-option value="light">ANTI RIOT</mat-option>
+              <mat-option value="heavy">BISHOFTU AUTOMOBILE</mat-option>
+              </mat-select>
+        </mat-form-field></td>
+        
+        
+        </tr>
+        <tr>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Unit price</mat-label>
+          <input matInput name="unit_price"  [ngModel]="data.unit_price">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Store Number</mat-label>
+          <mat-select name="store_number"  [ngModel]="data.store_number">
+                  <mat-option value="store_number_1">1</mat-option>
+                  <mat-option value="store_number_2">2</mat-option>
+                  <mat-option value="store_number_3">3</mat-option>
+                  <mat-option value="store_number_4">4</mat-option>
+                  <mat-option value="store_number_5">5</mat-option>
+              </mat-select>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Part Type</mat-label>
+            <mat-select name="part_type"  [ngModel]="data.part_type">
+                    <mat-option value="part_type_break">Break System</mat-option>
+                    <mat-option value="part_type_steering">Steering System</mat-option>
+                    <mat-option value="part_type_suspenssion">Suspenssion</mat-option>
+                    <mat-option value="part_type_body">Body System</mat-option>
+                    <mat-option value="part_type_engine">Engine System</mat-option>
+                    <mat-option value="part_type_electric">Electric sYSTEM</mat-option>
+                </mat-select>
+          </mat-form-field></td>
+       
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="mydatepicker" name="date" ngModel>
+          <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #mydatepicker></mat-datepicker>
+        </mat-form-field></td>
+      </tr>
+      <tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>No</mat-label>
+              <input matInput name="no"  [ngModel]="data.no">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Price</mat-label>
+              <input matInput name="price"  [ngModel]="data.price">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Description</mat-label>
+              <input matInput name="description"  [ngModel]="data.description">
+            </mat-form-field></td>
+      </tr>
+  
+  </table>
+    </form>
+    
+      <mat-dialog-actions>
+          
+          <button mat-raised-button color="primary" mat-dialog-close (click)="updateSpareRegistration(storeForm.value,data.no)">Update</button>
+      </mat-dialog-actions>
+     
