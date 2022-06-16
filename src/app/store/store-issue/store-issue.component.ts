@@ -49,7 +49,7 @@ export class StoreIssueComponent implements OnInit {
     ];
     partName = "";
     public stores_request:store_request[] = [
-      {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',date: ''}
+      {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity:  1,date: ''}
     ];
     public  request_by_request_number = false;
 
@@ -117,7 +117,7 @@ getStoreRequestByRequestNumber(param:store_request){
     (data)=>{
      console.log(data[0]);
      if(data.length==0){
-     this.stores_request[0] = {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',date: ''};
+     this.stores_request[0] = {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity: 1,date: ''};
       this.request_by_request_number = true
      return
      }

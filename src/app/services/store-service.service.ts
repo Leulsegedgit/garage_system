@@ -10,6 +10,7 @@ export interface store_request {
   service_number: string;
   requester: string;
   approver: string;
+  quantity: number;
   date: string;
 }
 

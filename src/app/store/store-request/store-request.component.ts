@@ -15,6 +15,7 @@ export interface store_request {
   service_number: string;
   requester: string;
   approver: string;
+  quantity: number;
   
   date: string;
 }
@@ -71,11 +72,11 @@ private filterNames(name:string): string[]{
     );
 }
   public stores:store_request[] = [
-    {no: 1, part_number:'345-466',request_number: '1234' , service_number: '123' , requester: 'Yohannes',approver: 'Bishaw',date: '12-02-2014'},
-    {no: 2, part_number:'4335-626-42',request_number: '1235' , service_number: '124' , requester: 'Zelalem',approver: 'Hailu',date: '16-11-2014'},
-    {no: 3, part_number:'632-632-65',request_number: '1236' , service_number: '125' , requester: 'Getnet',approver: 'Demle',date: '27-02-2014'},
-    {no: 4, part_number:'424-6462-63',request_number: '1237' , service_number: '126' , requester: 'Leulseged',approver: 'Wondimu',date: '12-02-2014'},
-    {no: 5, part_number:'632-63-264',request_number: '1238' , service_number: '127' , requester: 'Mehariw',approver: 'Melak',date: '06-5-2014'}  
+    {no: 1, part_number:'345-466',request_number: '1234' , service_number: '123' , requester: 'Yohannes',approver: 'Bishaw',quantity: 12 ,date: '12-02-2014'},
+    {no: 2, part_number:'4335-626-42',request_number: '1235' , service_number: '124' , requester: 'Zelalem',approver: 'Hailu',quantity: 12 ,date: '16-11-2014'},
+    {no: 3, part_number:'632-632-65',request_number: '1236' , service_number: '125' , requester: 'Getnet',approver: 'Demle',quantity: 12 ,date: '27-02-2014'},
+    {no: 4, part_number:'424-6462-63',request_number: '1237' , service_number: '126' , requester: 'Leulseged',approver: 'Wondimu',quantity: 12 ,date: '12-02-2014'},
+    {no: 5, part_number:'632-63-264',request_number: '1238' , service_number: '127' , requester: 'Mehariw',approver: 'Melak',quantity: 12 ,date: '06-5-2014'}  
   ];
   partName = "";
   print = false;
@@ -96,7 +97,7 @@ private filterNames(name:string): string[]{
   myControl = new FormControl();
   filteredNames: Observable<string[]> | undefined;
 
-  displayedColumns: string[] = ['no','part_number', 'request_number', 'service_number', 'requester','approver','date','edit','delete'];
+  displayedColumns: string[] = ['no','part_number', 'request_number', 'service_number', 'requester','approver','quantity','date','edit','delete'];
   dataSource = this.stores;
   getStoreRequest(param:store_request){
     this._store.getStoreRequest(param).subscribe(
@@ -111,6 +112,7 @@ private filterNames(name:string): string[]{
     )
   }
   addStoreRequest(param:store_request){
+    console.log(param)
     this._store.addStoreRequest(param).subscribe(
       (data)=>{
         

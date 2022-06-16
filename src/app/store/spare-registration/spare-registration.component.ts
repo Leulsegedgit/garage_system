@@ -12,6 +12,7 @@ export interface spare {
   unit_price: string;
   store_number: number;
   part_type: string;
+  location: string;
   class_type: string;
   heavy_light: string;
   consumable: string;
@@ -52,10 +53,10 @@ export class SpareRegistrationComponent implements OnInit {
  
   public spares:spare[] = [
    { no: 1, part_number: '66-GH-34', part_name: 'CABLE', unit_measure: 'SET', vehicle_type: 'TOYOTA', unit_price: '949', store_number: 4, part_type: 'break system',
-    class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
+    location: '15C', class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
 ];
 
-  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','location','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
   dataSource = this.spares;
   getSpare(param:spare){
     this._store.getSpare(param).subscribe(
@@ -102,6 +103,7 @@ export class SpareRegistrationComponent implements OnInit {
       unit_price: this.spares[index].unit_price,
       store_number: this.spares[index].store_number,
       part_type: this.spares[index].part_type,
+      location: this.spares[index].location,
       class_type: this.spares[index].class_type,
       heavy_light: this.spares[index].heavy_light,
       consumable: this.spares[index].consumable,
