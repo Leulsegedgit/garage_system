@@ -24,18 +24,6 @@ input[type=text],
     opacity: 0.8;
   }
 
-
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    align-content: center;
-    margin-top: 50px;
-    width: 20%;
-    height: 20%;
-
-  }
-
-
   /* Add padding to containers */
   .container {
     padding: 32px;
