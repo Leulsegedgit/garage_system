@@ -56,6 +56,7 @@ export class StoreServiceService {
   getStoreRequest(param:store_request): Observable<store_request[]>{
     return  this.http.post<store_request[]>("http://localhost:3000/api/getstorerequest",param);
     }
+    
   addStoreRequest(param:store_request): Observable<store_request[]>{
       return  this.http.post<store_request[]>("http://localhost:3000/api/addstorerequest",param).pipe(
         tap(()=>{
@@ -143,8 +144,8 @@ export class StoreServiceService {
   getSpare(param:spare): Observable<spare[]>{
     return  this.http.post<spare[]>("http://localhost:3000/api/getspare",param);
     }
-  addSpare(param:spare): Observable<store_issue[]>{
-      return  this.http.post<store_issue[]>("http://localhost:3000/api/addspare",param).pipe(
+  addSpare(param:spare): Observable<spare[]>{
+     return  this.http.post<spare[]>("http://localhost:3000/api/addspare",param).pipe(
         tap(()=>{
           this.RefreashRequired.next();
         }
@@ -154,7 +155,7 @@ export class StoreServiceService {
       }
       updateSpare(row:any){
         let body = [row];
-       console.log(body)
+       
         this.http.put("http://localhost:3000/api/editspare/",row).subscribe(
           data =>{
             //console.log(data)

@@ -1,4 +1,4 @@
-<form #storeForm="ngForm" class="example-form">
+<form  #storeForm="ngForm" class="example-form">
     <h1>Store receive header</h1>
   
     <table class="example-full-width" cellspacing="0"><tr>
@@ -10,10 +10,7 @@
         <mat-label>Receive vocher number</mat-label>
         <input matInput name="receive_vocher_number" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Part number</mat-label>
-        <input matInput name="part_number" ngModel>
-      </mat-form-field></td>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Receiver</mat-label>
         <input matInput name="receiver" ngModel>
@@ -22,12 +19,22 @@
         <mat-label>Deliverer</mat-label>
         <input matInput name="deliverer" ngModel>
       </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Refference</mat-label>
+        <input matInput name="refference" ngModel>
+      </mat-form-field></td>
       </tr>
       <tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Supplier</mat-label>
-        <input matInput name="supplier" ngModel>
-      </mat-form-field></td>
+       
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Supplier</mat-label>
+          <input matInput name="supplier"  [matAutocomplete]="auto"  [formControl]="myControl" (input)="getNames(myControl.value)" >
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+              {{name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Unit price</mat-label>
         <input matInput name="unit_price" ngModel>
@@ -47,7 +54,6 @@
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
     </tr></table>
-    <h1>Store receive detail</h1>
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Part number</mat-label>
@@ -56,23 +62,20 @@
       <button mat-raised-button color="primary" (click)="getByPartNumber(storeForm.value.part_number)" ><mat-icon>search</mat-icon>Search By Part No.</button>
       <br>
       {{partName}}
-    </td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Quantity requsted</mat-label>
-        <input matInput name="Quantity" ngModel>
-      </mat-form-field></td>
+    
       
       
     </tr></table>
     <div class="example-button-row">
       <button mat-raised-button (click)="getStoreReceive(storeForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
-      <button mat-raised-button color="primary" (click)="addStoreReceive(storeForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+      <button mat-raised-button color="primary" (click)="addStoreReceive(storeForm.value,myControl.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
     </div>
     
 
   </form>
+  
   <h2>Results:</h2> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -87,19 +90,19 @@
 
     <!-- Position Column -->
     <ng-container matColumnDef="plate_number">
-      <th mat-header-cell *matHeaderCellDef> Plate number </th>
+      <th mat-header-cell *matHeaderCellDef> Plate no </th>
       <td mat-cell *matCellDef="let element"> {{element.plate_number}} </td>
     </ng-container>
 
     <!-- Position Column -->
     <ng-container matColumnDef="receive_vocher_number">
-      <th mat-header-cell *matHeaderCellDef> Receive vocher number </th>
+      <th mat-header-cell *matHeaderCellDef> Receive vocher no </th>
       <td mat-cell *matCellDef="let element"> {{element.receive_vocher_number}} </td>
     </ng-container>
 
     <!-- Position Column -->
     <ng-container matColumnDef="part_number">
-      <th mat-header-cell *matHeaderCellDef> Part Number </th>
+      <th mat-header-cell *matHeaderCellDef> Part No </th>
       <td mat-cell *matCellDef="let element"> {{element.part_number}} </td>
     </ng-container>
 
@@ -123,7 +126,7 @@
 
      <!-- Weight Column -->
      <ng-container matColumnDef="refference">
-      <th mat-header-cell *matHeaderCellDef> Refference </th>
+      <th mat-header-cell *matHeaderCellDef> Ref </th>
       <td mat-cell *matCellDef="let element"> {{element.refference}} </td>
     </ng-container>
 
@@ -153,13 +156,13 @@
     
     <!-- Symbol Column -->
     <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <th mat-header-cell *matHeaderCellDef>  </th>
       <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)"><mat-icon>edit</mat-icon>Edit</button>
       </td>
     </ng-container>
      <!-- Symbol Column -->
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <th mat-header-cell *matHeaderCellDef>  </th>
       <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteStoreReceive(element.request_number)"><mat-icon>delete</mat-icon>Delete</button>
       </td>
     </ng-container> 

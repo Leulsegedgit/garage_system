@@ -67,12 +67,12 @@ export class StoreIssueComponent implements OnInit {
       }
     )
   }
-  addStoreIssue(param:store_issue){
+  addStoreIssue(param:store_issue,request_number: string){
+    param.request_number = request_number;
     this._store.addStoreIssue(param).subscribe(
       (data)=>{
-        
-        param.no = this.stores.length+1;
-        this.stores.push(param);
+          param.no = this.stores.length+1;
+          this.stores.push(param);
           this.dataSource = this.stores;
        
       }

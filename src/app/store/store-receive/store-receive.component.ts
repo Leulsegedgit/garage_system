@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { map, Observable,startWith } from 'rxjs';
 import { StoreReceiveEditComponent } from 'src/app/dialog/store-receive-edit/store-receive-edit.component';
+import { HelperFunctionsService } from 'src/app/services/helper-functions.service';
 import { StoreServiceService } from 'src/app/services/store-service.service';
 
 export interface store_receive {
@@ -26,11 +29,13 @@ export interface store_receive {
   styleUrls: ['./store-receive.component.css']
 })
 export class StoreReceiveComponent implements OnInit {
-
+  
  
- constructor(private _store:StoreServiceService,public dialog: MatDialog) { 
+ constructor(private _store:StoreServiceService,private _helper:HelperFunctionsService,public dialog: MatDialog) { 
 
  }
+ myControl = new FormControl();
+  filteredNames: Observable<string[]> | undefined;
 
  ngOnInit(): void {
    
@@ -50,12 +55,22 @@ export class StoreReceiveComponent implements OnInit {
        this.deleteStoreReceive('0');
      }
    );
- }
-
+   this.filteredNames = this.myControl.valueChanges.pipe(
+    startWith(''),
+    map(value=>this.filterNames(value))
+  );
+}
+private filterNames(name:string): string[]{
+const filtered_name = name.toLowerCase();
+return  this.names.filter(option => 
+  option.toLowerCase().includes(filtered_name)
+  );
+}
  public stores:store_receive[] = [
    {no: 1,plate_number:'aa-1234',receive_vocher_number:'123-54', part_number:'345-466',receiver: 'Alemayehu' , deliverer: 'Yohannes' , supplier: 'Yohannes',refference: 'TT-56',unit_price:234.6,quantity_received:86,quantity_remaining:23,date: '12-02-2014'},
    ];
    partName = "";
+   names: string[] = ['Metec','ABY','JAGUAR','LION'];
  displayedColumns: string[] = ['no','plate_number','receive_vocher_number','part_number', 'receiver', 'deliverer', 'supplier','refference','unit_price','quantity_received','quantity_remaining','date','edit','delete'];
  dataSource = this.stores;
  getStoreReceive(param:store_receive){
@@ -70,7 +85,9 @@ export class StoreReceiveComponent implements OnInit {
      }
    )
  }
- addStoreReceive(param:store_receive){
+ addStoreReceive(param:store_receive,sup:string){
+  
+  param.supplier = sup;
    this._store.addStoreReceive(param).subscribe(
      (data)=>{
        
@@ -133,6 +150,21 @@ getByPartNumber(part_number:string){
     }
   )
 }
-
+getNames(starting:any){
+  let names:any = []
+  console.log(starting)
+  this._helper.getSuppliers(starting).subscribe(
+      (data:any)=>{
+        console.log(data)
+        names = data;
+        if(data.length > 0)
+        for(let i=0; i<names.length; i++){
+          this.names[i]=names[i].name
+          
+        }
+       
+      }
+    )
+}
 }
 

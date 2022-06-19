@@ -1,141 +1,153 @@
-<form class="example-form">
-    <h1>Supplier Registration</h1>
-  <h2>Company Detail</h2>
+<form #supplierForm="ngForm" class="example-form" *ngIf="!print">
+  <mat-card>
+    <mat-card-title>
+    Suppplier Information
+  </mat-card-title>
+  <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Company Name</mat-label>
-        <input matInput>
+        <mat-label>Supplier Name</mat-label>
+        <input matInput name="name" ngModel>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Tax Registration Number</mat-label>
-        <input matInput>
+        <mat-label>Supplier Id</mat-label>
+        <input matInput name="supplier_id" ngModel>
       </mat-form-field></td>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የተረከበበት ምክኒያት</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የገባበት ቀን</mat-label>
-        <input matInput [matDatepicker]="mydatepicker">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="date" ngModel>
         <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የወጣበት ቀን</mat-label>
-        <input matInput [matDatepicker]="mydatepicker1">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker1></mat-datepicker>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>ምርመራ</mat-label>
-        <input matInput>
-      </mat-form-field></td>
     </tr></table>
-
-    <h2>Contact Information</h2>
-
-    
+  </mat-card-content>
+  </mat-card>
+    <mat-card>
+    <mat-card-title>
+     Supplier Contact Information
+  </mat-card-title>
+  <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
-        <p>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput>
+        <mat-label>Contact</mat-label>
+        <input matInput name="contact" ngModel>
       </mat-form-field></td>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>P.O. Box number</mat-label>
-        <input matInput>
+        <mat-label>Address</mat-label>
+        <input matInput name="address" ngModel>
       </mat-form-field></td>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Telephone</mat-label>
-        <input matInput>
+        <mat-label>Tel1</mat-label>
+        <input matInput name="tel1" ngModel>
       </mat-form-field></td>
+      
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tel2</mat-label>
+        <input matInput name="tel2" ngModel>
+      </mat-form-field></td>
+      
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Website</mat-label>
-        <input matInput>
+        <input matInput name="website" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Country</mat-label>
-        <input matInput [matDatepicker]="mydatepicker2">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker2></mat-datepicker>
-      </mat-form-field></td>
-</p>
-<p>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Fuel type</mat-label>
-      <mat-select>
-          <mat-option value="benzin">Benzin</mat-option>
-          <mat-option value="disel">Diesel</mat-option>
-          <mat-option value="gasoline">gasoline</mat-option>
-          <mat-option value="kerosene">Kerosene</mat-option>
-      </mat-select>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Libre</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Inssurance type</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Load type</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Libre payment year</mat-label>
-      <input matInput [matDatepicker]="mydatepicker3">
-      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #mydatepicker3></mat-datepicker>
-    </mat-form-field></td>
-</p>
-<p>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        
-            <mat-label>Loading capacity</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Light or Heavy</mat-label>
-          <mat-select>
-          <mat-option value="light">Light</mat-option>
-          <mat-option value="heavy">Heavy</mat-option>
-          </mat-select>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Status</mat-label>
-            <mat-select>
-            <mat-option value="active">Active</mat-option>
-            <mat-option value="inactive">Inactive</mat-option>
-            </mat-select>
-            </mat-form-field></td>
-    
-    
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Bought date</mat-label>
-      <input matInput [matDatepicker]="mydatepicker4">
-      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #mydatepicker4></mat-datepicker>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Inssurance renewal date</mat-label>
-        <input matInput [matDatepicker]="mydatepicker5">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker5></mat-datepicker>
-      </mat-form-field></td>
-</p>
-    </tr></table>
-
-  <h2>Other Information</h2>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>product/service description...</mat-label>
-    <textarea matInput placeholder="Note..."></textarea>
-  </mat-form-field>
-    
+      </tr></table>
+    </mat-card-content>
+  <mat-card-actions align="end">
+    <div class="example-button-row">
+      <button mat-raised-button (click)="getSupplier(supplierForm.value)"><mat-icon>search</mat-icon>Search</button>
+      <div class="space2"></div>
+      <button mat-raised-button color="primary" (click)="addSupplier(supplierForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
-     <div class="example-button-row">
-      <button mat-raised-button color="primary">Submit</button>
-     </div>
+    </div>
+  </mat-card-actions>
+  
+</mat-card>
+
   </form>
   
+  <mat-card>
+    <mat-card-title>
+  <h2>Results:</h2>
+</mat-card-title>
+<mat-card-content> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+     <!-- Position Column -->
+     <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="supplier_id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.supplier_id}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="contact">
+      <th mat-header-cell *matHeaderCellDef> Contact </th>
+      <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="tel1">
+      <th mat-header-cell *matHeaderCellDef> Tel-1 </th>
+      <td mat-cell *matCellDef="let element"> {{element.tel1}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="tel2">
+      <th mat-header-cell *matHeaderCellDef> Tel-2 </th>
+      <td mat-cell *matCellDef="let element"> {{element.tel2}} </td>
+    </ng-container>
+     <!-- Symbol Column -->
+     <ng-container matColumnDef="website">
+      <th mat-header-cell *matHeaderCellDef> Website </th>
+      <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element" > <button mat-button color="primary" (click)="openDialog(element.no)" *ngIf="!print"><mat-icon>edit</mat-icon>Edit</button>
+      </td>
+    </ng-container>
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteSupplier(element.request_number)" *ngIf="!print"><mat-icon>delete</mat-icon>Delete</button>
+      </td>
+    </ng-container> 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card-content>
+</mat-card>
+<button mat-button color="primary" (click)="printData()"><mat-icon>edit</mat-icon>Preview and Print</button>

@@ -10,4 +10,10 @@ export class HelperFunctionsService {
   getNames(starting:string){
     return this.http.get<any[]>("http://localhost:3000/api/getnames/"+starting)
  }
+ getSuppliers(starting:string){
+  return this.http.get<any[]>("http://localhost:3000/api/getsuppliers/"+starting)
+}
+getPlateNumber(starting:string){
+  return this.http.get<any[]>("http://localhost:3000/api/getplatenumbers/"+starting)
+}
 }

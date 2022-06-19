@@ -1,76 +1,79 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label><h2>Reception</h2></mat-label>
-      <input matInput disabled >
-    </mat-form-field>
-  <h2>Vechle Information</h2>
-    <table class="example-full-width" cellspacing="0"><tr>
+<mat-card>
+  <mat-card-content>
+<form #receptionForm="ngForm" class="example-form" *ngIf="!print">
+  <h2>Reception Header</h2>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Service Request Number</mat-label>
+        <input matInput name="service_number" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Letter refference</mat-label>
+        <input matInput name="refference" ngModel>
+      </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Plate number</mat-label>
-        <input matInput>
+        <input matInput name="plate_number"  [matAutocomplete]="auto"  [formControl]="myControl" (input)="getNames(myControl.value)" >
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+            {{name}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Manufacturer</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Manufacturer</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-
-    </tr></table>
-
-    <h2>Service Information</h2>
-
-    <p>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Mentenace Type</mat-label>
-        <textarea matInput placeholder="Ex. 100 Main St"></textarea>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>If Accedent..</mat-label>
-        <textarea matInput></textarea>
-      </mat-form-field>
-    </p>
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Service number</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Referential number</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Last service</mat-label>
-        <input matInput [matDatepicker]="mydatepicker">
+        <mat-label>Date Received</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="date_received" ngModel>
         <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
-
-    </tr></table>
-
-  <h2>Driver Information</h2>
-
-    <table class="example-full-width" cellspacing="0"><tr>
+    </tr>
+    <tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Ex. San Francisco">
+        <mat-label>Date Finshed</mat-label>
+        <input matInput [matDatepicker]="mydatepicker2" name="date_finished" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker2></mat-datepicker>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>ID</mat-label>
-        <input matInput placeholder="Ex. California">
+        <mat-label>Serrvice Type</mat-label>
+        <mat-select name="service_type" ngModel>
+            <mat-option value="A">A</mat-option>
+            <mat-option value="B">B</mat-option>
+            <mat-option value="C">C</mat-option>
+            
+            </mat-select>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>...</mat-label>
-        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+        <mat-label>Status</mat-label>
+        <mat-select name="status" ngModel>
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Suspended">Suspended</mat-option>
+            <mat-option value="Finshed">Finshed</mat-option>
+            
+            </mat-select>
       </mat-form-field></td>
-    </tr></table>
+       
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fuel Gauge</mat-label>
+        <input matInput name="fuel_gauge" ngModel>
+      </mat-form-field></td>
+    </tr>
+  </table>
+
+    <h2>Detail Information</h2>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Other</mat-label>
+        <textarea matInput placeholder="Paint Scratches and Small Dents, The Car is Consuming Too Much Oil" name="other" ngModel></textarea>
+      </mat-form-field>
+      
+  
     
-        <div>
+        <!-- <div>
            
-            <h4>Damage:</h4>
+            <h2>Damage:</h2>
             <div class="damage_lists">
               <span>
         <mat-checkbox >Dead battery</mat-checkbox>
@@ -83,14 +86,116 @@
         <mat-checkbox >Window Problems</mat-checkbox>
         <mat-checkbox >Rust</mat-checkbox>
       </span>
-      </div>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Other</mat-label>
-            <textarea matInput placeholder="specify other damages here...">Paint Scratches and Small Dents, The Car is Consuming Too Much Oil</textarea>
-          </mat-form-field>
+      </div> -->
+      <h2>Damage:</h2>
+      <mat-selection-list #shoes name="damage" ngModel>
+        <mat-list-option value="Dead battery">Dead battery </mat-list-option>
+        <mat-list-option value="Flat tires">Flat tires </mat-list-option>
+        <mat-list-option value="Alternator Failure">Alternator Failure </mat-list-option>
+        <mat-list-option value="Overheating">Overheating </mat-list-option>
+        <mat-list-option value="Radiator is Leaking">Radiator is Leaking </mat-list-option>
+        <mat-list-option value="Fuel Leaks">Fuel Leaks</mat-list-option>
+        <mat-list-option value="Electrical Problems: Speakers, Lights..">Electrical Problems: Speakers, Lights.. </mat-list-option>
+        <mat-list-option value="Window Problems">Window Problems </mat-list-option>
+        <mat-list-option value="Rust">Rust </mat-list-option>
+      </mat-selection-list>
+      
+      <mat-card-actions>
+        <div class="example-button-row">
+          <button mat-raised-button (click)="getReception(receptionForm.value)"><mat-icon>search</mat-icon>Search</button>
+          <div class="space2"></div>
+          <button mat-raised-button color="primary" (click)="addReception(receptionForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+          
         </div>
-     <div class="example-button-row">
-      <button mat-raised-button color="primary">Submit</button>
-     </div>
+      </mat-card-actions>
+      
   </form>
+</mat-card-content>
+</mat-card>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
   
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="service_number">
+      <th mat-header-cell *matHeaderCellDef> Service No </th>
+      <td mat-cell *matCellDef="let element"> {{element.service_number}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="plate_number">
+      <th mat-header-cell *matHeaderCellDef>Plate No </th>
+      <td mat-cell *matCellDef="let element"> {{element.plate_number}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="refference">
+      <th mat-header-cell *matHeaderCellDef>Ref </th>
+      <td mat-cell *matCellDef="let element"> {{element.refference}} </td>
+    </ng-container>
+
+     <!-- Position Column -->
+     <ng-container matColumnDef="date_received">
+      <th mat-header-cell *matHeaderCellDef> Date Received </th>
+      <td mat-cell *matCellDef="let element"> {{element.date_received}} </td>
+    </ng-container>
+     <!-- Position Column -->
+     <ng-container matColumnDef="date_finished">
+      <th mat-header-cell *matHeaderCellDef> Date Finished </th>
+      <td mat-cell *matCellDef="let element"> {{element.date_finished}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="service_type">
+      <th mat-header-cell *matHeaderCellDef> Service type </th>
+      <td mat-cell *matCellDef="let element"> {{element.service_type}} </td>
+    </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="fuel_gauge">
+      <th mat-header-cell *matHeaderCellDef> Fuel Gauge </th>
+      <td mat-cell *matCellDef="let element"> {{element.fuel_gauge}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="damage">
+      <th mat-header-cell *matHeaderCellDef> Damage </th>
+      <td mat-cell *matCellDef="let element"> {{element.damage}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="other">
+      <th mat-header-cell *matHeaderCellDef> Other </th>
+      <td mat-cell *matCellDef="let element"> {{element.other}} </td>
+    </ng-container>
+  
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)" *ngIf="!print"><mat-icon>edit</mat-icon>Edit</button>
+      </td>
+    </ng-container>
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteReception(element.service_number)" *ngIf="!print"><mat-icon>delete</mat-icon>Delete</button>
+      </td>
+    </ng-container> 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-button color="primary" (click)="printData()"><mat-icon>print</mat-icon>Preview and Print</button>

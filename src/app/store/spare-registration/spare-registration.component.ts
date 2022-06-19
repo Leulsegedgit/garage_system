@@ -59,18 +59,21 @@ export class SpareRegistrationComponent implements OnInit {
   displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','location','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
   dataSource = this.spares;
   getSpare(param:spare){
+
     this._store.getSpare(param).subscribe(
       (data)=>{
+        
        this.spares = data;
         for(let i=0; i<this.spares.length; i++){
           this.spares[i].no = i+1;
         }
         this.dataSource = this.spares;
+       
       }
     )
   }
   addSpare(param:spare){
-    this._store.addSpare(param).subscribe(
+   this._store.addSpare(param).subscribe(
       (data)=>{
         
         param.no = this.spares.length+1;

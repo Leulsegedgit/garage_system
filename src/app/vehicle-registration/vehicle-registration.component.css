@@ -23,3 +23,11 @@
     width: 490px;
     margin: 10px;
   }
+  .space2 {
+    width: 14px;
+    height: auto;
+    display: inline-block;
+  }
+  table {
+    width: 100%;
+  }

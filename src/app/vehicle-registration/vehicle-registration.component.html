@@ -1,141 +1,246 @@
-<form class="example-form">
-    <h1>Vehicle registration</h1>
-  <h2>ውል</h2>
+<mat-card>
+<form #vehicleForm="ngForm" class="example-form">
+  
+    <mat-card-title>
+    <h1>Vehicle</h1>
+  </mat-card-title>
+  <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የአስረካቢው ስም</mat-label>
-        <input matInput>
+        <mat-label>Plate Number</mat-label>
+        <input matInput name="plate_number" ngModel>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የተርካቢው ስም</mat-label>
-        <input matInput>
+        <mat-label>Chassi Number</mat-label>
+        <input matInput name="chassi_number" ngModel>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የተረከበበት ምክኒያት</mat-label>
-        <input matInput>
+        <mat-label>Fuel Type</mat-label>
+        <mat-select name="fuel_type" ngModel>
+            <mat-option value="Benzin">Benzin</mat-option>
+            <mat-option value="Gazolin">Gazolin</mat-option>
+            <mat-option value="Electric">Electric</mat-option>
+            <mat-option value="Other">Other</mat-option>
+            </mat-select>
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የገባበት ቀን</mat-label>
-        <input matInput [matDatepicker]="mydatepicker">
+        <mat-label>Factory</mat-label>
+        <mat-select name="factory" ngModel>
+            <mat-option value="TOYOTA">TOYOTA</mat-option>
+            <mat-option value="TOYOTA/DU/CAPICKUP">TOYOTA/DU/CAPICKUP</mat-option>
+            <mat-option value="TOYOTA 4RUNNER">TOYOTA 4RUNNER</mat-option>
+            <mat-option value="TOYOTA AUTOMOBILE">TOYOTA AUTOMOBILE</mat-option>
+            <mat-option value="TOYOTA COROLA">TOYOTA COROLA</mat-option>
+            <mat-option value="TOYOTA LA/HARDTOP">TOYOTA LA/HARDTOP</mat-option>
+            <mat-option value="TOYOTA LA/STA/WAGEN">TOYOTA LA/STA/WAGEN</mat-option>
+            <mat-option value="ORAL">ORAL</mat-option>
+            <mat-option value="ORAL CARGO">ORAL CARGO</mat-option>
+            <mat-option value="PAGO">PAGO</mat-option>
+            <mat-option value="OPEL">OPEL</mat-option>
+            <mat-option value="TOYOTA AUTOMOBILE">TOYOTA AUTOMOBILE</mat-option>
+            <mat-option value="TATA BUS">TATA BUS</mat-option>
+            <mat-option value="TOYOTA LA/HARDTOP">TOYOTA LA/HARDTOP</mat-option>
+            <mat-option value="TATA DAEWOO">TATA DAEWOO</mat-option>
+            <mat-option value="SUZIKI MO/CL">SUZIKI MO/CL</mat-option>
+            <mat-option value="SPORTAGE AUTOMOBILE">SPORTAGE AUTOMOBILE</mat-option>
+            <mat-option value="MERCEDES">MERCEDES</mat-option>
+            <mat-option value="MISTBUSH">MISTBUSH</mat-option>
+            <mat-option value="BEIBEN">BEIBEN</mat-option>
+            <mat-option value="ANTI RIOT">ANTI RIOT</mat-option>
+            <mat-option value="BISHOFTU AUTOMOBILE">BISHOFTU AUTOMOBILE</mat-option>
+            </mat-select>
+      </mat-form-field></td>
+      
+      
+      </tr>
+      <tr>
+      
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price with tax</mat-label>
+        <input matInput name="price" ngModel>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Made In</mat-label>
+        <mat-select name="made_in" ngModel>
+                <mat-option value="German">German</mat-option>
+                <mat-option value="Itali">Itali</mat-option>
+                <mat-option value="Japan">Japan</mat-option>
+                <mat-option value="USA">USA</mat-option>
+                <mat-option value="Russia">Russia</mat-option>
+            </mat-select>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Type of Service</mat-label>
+          <mat-select name="service_type" ngModel>
+                  <mat-option value="Public service">Public service</mat-option>
+                  <mat-option value="Transport service">Transport service</mat-option>
+                  <mat-option value="Water service">Water service</mat-option>
+                  <mat-option value="Defense service">Defense service</mat-option>
+                 
+              </mat-select>
+        </mat-form-field></td>
+     
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Year Made in</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="made_year" ngModel>
         <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>የወጣበት ቀን</mat-label>
-        <input matInput [matDatepicker]="mydatepicker1">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker1></mat-datepicker>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>ምርመራ</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-    </tr></table>
+    </tr>
+    <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>CC</mat-label>
+            <input matInput name="cc" ngModel>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Number of Tyers</mat-label>
+            <input matInput name="tyers" ngModel>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput name="description" ngModel>
+          </mat-form-field></td>
+    </tr>
 
-    <h2>Vehicle information</h2>
-
-    
+</table>
+    <h1>Store receive detail</h1>
     <table class="example-full-width" cellspacing="0"><tr>
-        <p>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>plate number</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>vehicle fatory</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>model</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>chassi number</mat-label>
-        <input matInput>
-      </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>year made in</mat-label>
-        <input matInput [matDatepicker]="mydatepicker2">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker2></mat-datepicker>
-      </mat-form-field></td>
-</p>
-<p>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Fuel type</mat-label>
-      <mat-select>
-          <mat-option value="benzin">Benzin</mat-option>
-          <mat-option value="disel">Diesel</mat-option>
-          <mat-option value="gasoline">gasoline</mat-option>
-          <mat-option value="kerosene">Kerosene</mat-option>
-      </mat-select>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Libre</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Inssurance type</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Load type</mat-label>
-      <input matInput>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Libre payment year</mat-label>
-      <input matInput [matDatepicker]="mydatepicker3">
-      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #mydatepicker3></mat-datepicker>
-    </mat-form-field></td>
-</p>
-<p>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        
-            <mat-label>Loading capacity</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Light or Heavy</mat-label>
-          <mat-select>
-          <mat-option value="light">Light</mat-option>
-          <mat-option value="heavy">Heavy</mat-option>
-          </mat-select>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Status</mat-label>
-            <mat-select>
-            <mat-option value="active">Active</mat-option>
-            <mat-option value="inactive">Inactive</mat-option>
-            </mat-select>
-            </mat-form-field></td>
-    
-    
-    <td><mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Bought date</mat-label>
-      <input matInput [matDatepicker]="mydatepicker4">
-      <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #mydatepicker4></mat-datepicker>
-    </mat-form-field></td>
-    <td><mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Inssurance renewal date</mat-label>
-        <input matInput [matDatepicker]="mydatepicker5">
-        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
-        <mat-datepicker #mydatepicker5></mat-datepicker>
-      </mat-form-field></td>
-</p>
+        <td><mat-label>Condition</mat-label>
+            <p>
+            <mat-radio-group aria-label="Select an option" name="condition" ngModel>
+                <mat-radio-button value="A">A</mat-radio-button>
+                <mat-radio-button value="B">B</mat-radio-button>
+                <mat-radio-button value="C">C</mat-radio-button>
+                <mat-radio-button value="U">Unkown</mat-radio-button>
+              </mat-radio-group>
+            </p>
+            </td> 
+            <td><mat-label>Heavy/Light</mat-label>
+                <p>
+                <mat-radio-group aria-label="Heavy/Light" name="heavy_light" ngModel>
+                    <mat-radio-button value="HEAVY">Heavy</mat-radio-button>
+                    <mat-radio-button value="LIGHT">Light</mat-radio-button>
+                    </mat-radio-group>
+                </p>
+                </td> 
+                <td><mat-label>Load Type</mat-label>
+                    <p>
+                    <mat-radio-group aria-label="Heavy/Light" name="load_type" ngModel>
+                        <mat-radio-button value="Consumable">Solid</mat-radio-button>
+                        <mat-radio-button value="Non Consumable">Liquid</mat-radio-button>
+                        </mat-radio-group>
+                    </p>
+                    </td> 
     </tr></table>
-
-  <h2>Other Information</h2>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Other</mat-label>
-    <textarea matInput placeholder="Note..."></textarea>
-  </mat-form-field>
-    
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <div class="example-button-row">
+      <button mat-raised-button (click)="getVehicle(vehicleForm.value)"><mat-icon>search</mat-icon>Search</button>
+      <div class="space2"></div>
+      <button mat-raised-button color="primary" (click)="addVehicle(vehicleForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
       
-     <div class="example-button-row">
-      <button mat-raised-button color="primary">Submit</button>
-     </div>
-  </form>
+    </div>
+  </mat-card-actions>
   
+  </form>
+</mat-card>
+
+  <h2>Results:</h2> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="part_number">
+      <th mat-header-cell *matHeaderCellDef> Part No </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_number}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="part_name">
+      <th mat-header-cell *matHeaderCellDef>Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_name}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="unit_measure">
+      <th mat-header-cell *matHeaderCellDef>Measure </th>
+      <td mat-cell *matCellDef="let element"> {{element.unit_measure}} </td>
+    </ng-container>
+
+     <!-- Position Column -->
+     <ng-container matColumnDef="part_type">
+      <th mat-header-cell *matHeaderCellDef> Part Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.part_type}} </td>
+    </ng-container>
+     <!-- Position Column -->
+     <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef> Location </th>
+      <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="vehicle_type">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.vehicle_type}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="class_type">
+      <th mat-header-cell *matHeaderCellDef> Class </th>
+      <td mat-cell *matCellDef="let element"> {{element.class_type}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="store_number">
+      <th mat-header-cell *matHeaderCellDef> Store No </th>
+      <td mat-cell *matCellDef="let element"> {{element.store_number}} </td>
+    </ng-container>
+
+     <!-- Weight Column -->
+     <ng-container matColumnDef="unit_price">
+      <th mat-header-cell *matHeaderCellDef> Unit price </th>
+      <td mat-cell *matCellDef="let element"> {{element.unit_price}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="heavy_light">
+      <th mat-header-cell *matHeaderCellDef> H/L </th>
+      <td mat-cell *matCellDef="let element"> {{element.heavy_light}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="consumable">
+      <th mat-header-cell *matHeaderCellDef> Consumable </th>
+      <td mat-cell *matCellDef="let element"> {{element.consumable}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Des </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-button color="primary" (click)="openDialog(element.no)"><mat-icon>edit</mat-icon>Edit</button>
+      </td>
+    </ng-container>
+     <!-- Symbol Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent" (click)="deleteVehicle(element.part_number)"><mat-icon>delete</mat-icon>Delete</button>
+      </td>
+    </ng-container> 
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
