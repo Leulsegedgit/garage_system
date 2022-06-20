@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class UsersService {
 
   constructor(private http:HttpClient,private _router: Router) {}
+  public name = "";
 
   getUser(username:string, password:string): Observable<any>{
   let user =  {
@@ -31,5 +32,11 @@ export class UsersService {
     }
     getToken(){
       return localStorage.getItem('token')
+    }
+    getName(){
+      return this.name
+    }
+    setName(name:string){
+      this.name = name
     }
 }

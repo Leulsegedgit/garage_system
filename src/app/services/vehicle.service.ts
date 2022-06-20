@@ -19,12 +19,12 @@ export class VehicleService {
   
   getVehicle(param:vehicle): Observable<vehicle[]>{
 
-    return  this.http.post<vehicle[]>("http://localhost:3000/api/getreception",param);
+    return  this.http.post<vehicle[]>("http://localhost:3000/api/getvehicle",param);
     }
     
   addVehicle(param:vehicle): Observable<vehicle[]>{
     console.log(param)
-      return  this.http.post<vehicle[]>("http://localhost:3000/api/addreception",param).pipe(
+      return  this.http.post<vehicle[]>("http://localhost:3000/api/addvehicle",param).pipe(
         tap(()=>{
           this.RefreashRequired.next();
         }
@@ -35,7 +35,7 @@ export class VehicleService {
       updateVehicle(row:any){
         let body = [row];
        
-        this.http.put("http://localhost:3000/api/editreception/",row).subscribe(
+        this.http.put("http://localhost:3000/api/editvehicle/",row).subscribe(
           data =>{
             console.log(data)
           }
@@ -44,10 +44,10 @@ export class VehicleService {
         this.RefreashRequired.next();
       }
   deleteVehicle(id:string){
-        return this.http.delete("http://localhost:3000/api/deletereception/"+id);
+        return this.http.delete("http://localhost:3000/api/deletevehicle/"+id);
       }
-      getByPartNumber(part_number:string): Observable<any>{
-        return  this.http.get<any>("http://localhost:3000/api/getbypartnumber/"+part_number);
+      getByPlateNumber(part_number:string): Observable<any>{
+        return  this.http.get<any>("http://localhost:3000/api/getbyplatenumber/"+part_number);
         }
     }
   

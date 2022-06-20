@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from '../models/users';
 import { UsersService } from '../services/users.service';
@@ -9,6 +9,9 @@ import { UsersService } from '../services/users.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
+
 export class LoginComponent implements OnInit {
 
   constructor(private _router: Router,private _users:UsersService) { }
@@ -20,6 +23,7 @@ export class LoginComponent implements OnInit {
   public form = {};
 
   public x = {};
+  
  log(form:any)
  {
   this.form = form;
@@ -36,12 +40,13 @@ export class LoginComponent implements OnInit {
       }else{
         this.is_registerd = true
         localStorage.setItem('token',data.token);
-
-       if(data.type == 'admin')
+        this._users.setName(data.name)
+        
+       if(data.type == 'Admin')
          {
            this._router.navigate(['/dashboard']);
           }
-       else if(data.type == 'user')
+       else if(data.type == 'User')
           this._router.navigate(['/user']);
         
     }

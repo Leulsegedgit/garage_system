@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { map, Observable,startWith } from 'rxjs';
 import { SpareRegistrationEditComponent } from '../dialog/spare-registration-edit/spare-registration-edit.component';
 import { HelperFunctionsService } from '../services/helper-functions.service';
+import { PrintService } from '../services/print.service';
 import { ReceptionService } from '../services/reception.service';
 
 export interface reception {
@@ -29,7 +31,8 @@ export interface reception {
 export class ReceptionComponent implements OnInit {
   print = false;
 
-  constructor(private _reception: ReceptionService, private _helper:HelperFunctionsService,public dialog: MatDialog) { }
+  constructor(private _reception: ReceptionService, private _helper:HelperFunctionsService,public dialog: MatDialog, public _router: Router,
+    public print_service:PrintService) { }
 
   myControl = new FormControl();
   filteredNames: Observable<string[]> | undefined;
@@ -156,8 +159,10 @@ public dashboard_content = "home";
  }
  
  printData(){
-  this.print = true;
-  window.print()
+this.print_service.setReceptions(this.receptions)
+  this._router.navigate(['/print']);
+  // this.print = true;
+  // window.print()
 }
 
 

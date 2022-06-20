@@ -5,19 +5,20 @@ import { VehicleService } from '../services/vehicle.service';
 
 export interface vehicle {
   no: number;
-  part_number: string;
-  part_name: string;
-  unit_measure: string;
-  vehicle_type: string;
-  unit_price: string;
-  store_number: number;
-  part_type: string;
-  location: string;
-  class_type: string;
-  heavy_light: string;
-  consumable: string;
+  plate_number: string;
+  chassi_number: string;
+  fuel_type: string;
+  factory: string;
+  price: number;
+  made_in: string;
+  service_type: string;
+  made_year: string;
+  cc: string;
+  tyers: string;
   description: string;
-  date: string;
+  _condition: string;
+  heavy_light: string;
+  load_type: string;
 }
 
 @Component({
@@ -50,14 +51,15 @@ export class VehicleRegistrationComponent implements OnInit {
   }
  
   public spares:vehicle[] = [
-   { no: 1, part_number: '66-GH-34', part_name: 'CABLE', unit_measure: 'SET', vehicle_type: 'TOYOTA', unit_price: '949', store_number: 4, part_type: 'break system',
-    location: '15C', class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
+   { no: 1, plate_number: '66-GH-34', chassi_number: 'CABLE', fuel_type: 'SET', factory: 'TOYOTA', price: 949.99, made_in: 'Japan', service_type: 'break system',
+   made_year: '11-12-2022', cc: '7', tyers: '4', _condition: 'New', description: 'New model 5 cylinder', heavy_light: 'Heavy',load_type: 'Solid'}
 ];
 
-  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','location','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','plate_number','chassi_number','fuel_type', 'factory',  'price','made_in','service_type','made_year','cc','tyers','description','heavy_light','_condition','load_type','edit','delete'];
+ 
   dataSource = this.spares;
   getVehicle(param:vehicle){
-
+console.log(param)
     this._vehicle.getVehicle(param).subscribe(
       (data)=>{
         
@@ -85,7 +87,7 @@ export class VehicleRegistrationComponent implements OnInit {
   deleteVehicle(param:string){
     this._vehicle.deleteVehicle(param).subscribe(
       (data)=>{
-        this.spares = this.spares.filter(function(el) { return el.part_number != param; }); 
+        this.spares = this.spares.filter(function(el) { return el.plate_number != param; }); 
         this.dataSource = this.spares;   
       }
     )
@@ -97,19 +99,19 @@ export class VehicleRegistrationComponent implements OnInit {
     
     const dialogRef = this.dialog.open(SpareRegistrationEditComponent,{data: {
       no: this.spares[index].no,
-      part_number: this.spares[index].part_number,
-      part_name: this.spares[index].part_name,
-      unit_measure: this.spares[index].unit_measure,
-      vehicle_type: this.spares[index].vehicle_type,
-      unit_price: this.spares[index].unit_price,
-      store_number: this.spares[index].store_number,
-      part_type: this.spares[index].part_type,
-      location: this.spares[index].location,
-      class_type: this.spares[index].class_type,
-      heavy_light: this.spares[index].heavy_light,
-      consumable: this.spares[index].consumable,
+      plate_number: this.spares[index].plate_number,
+      chassi_number: this.spares[index].chassi_number,
+      fuel_type: this.spares[index].fuel_type,
+      factory: this.spares[index].factory,
+      price: this.spares[index].price,
+      made_in: this.spares[index].made_in,
+      service_type: this.spares[index].service_type,
+      made_year: this.spares[index].made_year,
+      cc: this.spares[index].cc,
+      tyers: this.spares[index].tyers,
       description: this.spares[index].description,
-      date: this.spares[index].date,
+      _condition: this.spares[index]._condition,
+      heavy_light: this.spares[index].heavy_light,
     }});
  
     dialogRef.afterClosed().subscribe(result => {

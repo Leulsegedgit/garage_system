@@ -17,6 +17,7 @@ import { AllStoreComponent } from "./store/store/store.component";
 import { EmployeDashboardComponent } from "./employe/dashboard/employe-dashboard/employe-dashboard.component";
 import { AuthGuard } from "./auth.guard";
 import { EmployeRegistrationComponent } from "./employe/employe-registration/employe-registration.component";
+import { PrintComponent } from "./print/print.component";
 
 
 const routes: Routes = [
@@ -84,12 +85,16 @@ const routes: Routes = [
             },
             {
                 path: 'technician', component: TechnicianComponent
+            },
+            {
+                path: 'employe_register', component: EmployeRegistrationComponent
             }
         ]
     
          },
     {path: 'reception', component: ReceptionComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'print', component: PrintComponent},
     {path: '**', component: PageNotFoundComponent}
     
 ];

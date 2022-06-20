@@ -38,6 +38,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { EmployeRegistrationComponent } from './employe/employe-registration/employe-registration.component';
 import { EmployeRegistrationEditComponent } from './dialog/employe-registration-edit/employe-registration-edit.component';
 import { SupplierEditComponent } from './dialog/supplier-edit/supplier-edit.component';
+import { PrintComponent } from './print/print.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { SupplierEditComponent } from './dialog/supplier-edit/supplier-edit.comp
     EmployeRegistrationComponent,
     EmployeRegistrationEditComponent,
     SpareRegistrationEditComponent,
-    SupplierEditComponent
+    SupplierEditComponent,
+    PrintComponent
     
   ],
   entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],
@@ -82,7 +84,7 @@ import { SupplierEditComponent } from './dialog/supplier-edit/supplier-edit.comp
     MaterialModule,
     
   ],
-  providers: [UsersService,RegisterService,AuthGuard,{
+  providers: [UsersService,LoginComponent,RegisterService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

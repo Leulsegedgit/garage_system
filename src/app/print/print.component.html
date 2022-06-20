@@ -1,0 +1,28 @@
+<table class="table table-borderd my-table">
+    <thead>
+    <tr>
+      
+        <th>Service No.</th>
+        <th>Plate No.</th>
+        <th>Ref</th>
+        <th>Date Received</th>
+        <th>Date Finished</th>
+        <th>Damage</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of receptions; index as i">
+      
+          <td><span>{{ data.service_number }}</span></td>
+          <td><span>{{ data.plate_number }}</span></td>
+          <td><span>{{ data.refference }}</span></td>
+          <td><span>{{ data.date_received }}</span></td>
+          <td><span>{{ data.date_finished }}</span></td>
+          <td><span>{{ data.damage }}</span></td>
+
+          
+    </tr>
+  </tbody>
+  </table>
+  <button mat-button color="primary" (click)="print()"><mat-icon>print</mat-icon></button>
