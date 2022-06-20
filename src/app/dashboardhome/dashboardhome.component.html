@@ -1,52 +1,10 @@
-
-        <div >
-
-          <div class="mydiv" style="background-color: rgb(229, 222, 235); width: 100%; height: auto; overflow: hidden;">
-          
-            <ngx-charts-bar-vertical [results]="bargraph"></ngx-charts-bar-vertical>
-                
-          </div>
-          <h2>Maintenace report. Hover the mouse to see the data.</h2>
-          <div class="mydiv2" style="background-color: rgb(205, 204, 250); width: 100%; height: auto; overflow: hidden;">
-          
-          <ngx-charts-pie-chart [results]="piechart"></ngx-charts-pie-chart>
-          
-        </div>
-        <h2>Employee report. Hover the mouse to see the data.</h2>
-        
-        </div>
-
-   <!---->
-                        <div *ngIf="register_request">
-
-                          <label style="color: orange;">There are Pending register requeests</label>
-                          &nbsp;
-                          <button type="button" class="btn btn-primary rounded-pill" (click)="showRegisterRequest()">{{show_hide}}</button>
-                        
-                        </div>
-                          <div *ngIf="show_register_request"class="col-sm-8 mt-1 mb-1">
-                          <table class="table table-borderd my-table">
-                            <thead>
-                            <tr>
-                              
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>phone</th>
-                                <th>Action</th>
-                              
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let user of users; index as i">
-                              
-                                  <td><span>{{ user.id }}</span></td>
-                                  <td><span>{{ user.first_name }}</span></td>
-                                  <td><span>{{ user.last_name }}</span></td>
-                                  <td><span><button type="button" class="btn btn-success rounded-pill" (click)="approveRegistration(i)">Approve</button> &nbsp; <button type="button" class="btn btn-danger rounded-pill" (click)="declineRegistration(i)">Decline</button></span></td>
-                            
-                            </tr>
-                          </tbody>
-                          </table>
-                        </div>
-                   
-
+<div class="row">
+  <div class="column">
+    <h3>Maintenace report. Hover the mouse to see the data.</h3>
+    <ngx-charts-bar-vertical [results]="bargraph"></ngx-charts-bar-vertical>
+  </div>
+  <div class="column">
+    <h3>Employee report. Hover the mouse to see the data.</h3>
+    <ngx-charts-pie-chart [results]="piechart"></ngx-charts-pie-chart>
+  </div>
+</div>

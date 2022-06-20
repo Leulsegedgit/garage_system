@@ -1,0 +1,8 @@
+.column {
+    float: inline-end;
+    width: 50%; 
+    height: auto; 
+    overflow: hidden;
+    column-gap: 50px;
+  }
+  

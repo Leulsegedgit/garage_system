@@ -7,7 +7,6 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./dashboard-toolbar.component.css']
 })
 export class DashboardToolbarComponent implements OnInit {
-
   constructor(private _authService: UsersService) { }
 
   ngOnInit(): void {
