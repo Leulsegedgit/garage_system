@@ -3,27 +3,27 @@
     <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Employe Id</mat-label>
-        <input matInput name="employe_id" [ngModel]="data.part_number" >
+        <input matInput name="employe_id" [ngModel]="data.employe_id" >
       </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Title</mat-label>
-          <input matInput name="title" [ngModel]="data.request_number" >
+          <input matInput name="title" [ngModel]="data.title" >
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Gender</mat-label>
-          <input matInput name="gender" [ngModel]="data.service_number">
+          <input matInput name="gender" [ngModel]="data.gender">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Profession</mat-label>
-          <input matInput name="profession" [ngModel]="data.requester">
+          <input matInput name="profession" [ngModel]="data.profession">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Responsibility</mat-label>
-          <input matInput name="responsibility" [ngModel]="data.approver">
+          <input matInput name="responsibility" [ngModel]="data.responsibility">
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Type</mat-label>
-            <input matInput name="type" [ngModel]="data.approver">
+            <input matInput name="type" [ngModel]="data.type">
           </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Birth date</mat-label>
@@ -36,27 +36,27 @@
       <tr>
         <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Directorate</mat-label>
-            <input matInput name="directorate" [ngModel]="data.part_number" >
+            <input matInput name="directorate" [ngModel]="data.directorate" >
           </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Division</mat-label>
-              <input matInput name="division" [ngModel]="data.request_number" >
+              <input matInput name="division" [ngModel]="data.division" >
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Mastebaberiya</mat-label>
-              <input matInput name="mastebaberiya" [ngModel]="data.service_number">
+              <input matInput name="mastebaberiya" [ngModel]="data.mastebaberiya">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Team</mat-label>
-              <input matInput name="team" [ngModel]="data.requester">
+              <input matInput name="team" [ngModel]="data.team">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Level</mat-label>
-              <input matInput name="level" [ngModel]="data.approver">
+              <input matInput name="level" [ngModel]="data.level">
             </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Salary</mat-label>
-                <input matInput name="salary" [ngModel]="data.approver">
+                <input matInput name="salary" [ngModel]="data.salary">
               </mat-form-field></td>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Hire Date</mat-label>
@@ -65,7 +65,12 @@
               <mat-datepicker #mydatepicker2></mat-datepicker>
             </mat-form-field></td> 
       </tr>
-    
+      <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput name="password" [ngModel]="data.password">
+        </mat-form-field></td> 
+      </tr>
     </table>
       
     </form>

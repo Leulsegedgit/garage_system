@@ -20,6 +20,7 @@ export interface employe {
   level: string;
   type: string;
   salary: number;
+  password: string;
   birth_date: string;
   hire_date: string;
 }
@@ -58,7 +59,7 @@ export class EmployeRegistrationComponent implements OnInit {
   public employees:employe[] = [
     {
        no: 1, employe_id: 'EMP-123',title:'Ato', name: 'Yohannes Teklie', gender: 'MALE', profession: 'DRIVER', responsibility: 'RES', department: 'A', directorate: 'B',
-  division: 'C', mastebaberiya: 'D', team: 'L', 'level': 'Degree', type: 'A', salary: 9786.65, birth_date: '12-08-94',hire_date: '22-10-19'
+  division: 'C', mastebaberiya: 'D', team: 'L', 'level': 'Degree', type: 'A', salary: 9786.65,password: "", birth_date: '12-08-94',hire_date: '22-10-19'
 }
 ];
 
@@ -116,6 +117,7 @@ export class EmployeRegistrationComponent implements OnInit {
       level: this.employees[index].level,
       type: this.employees[index].type,
       salary: this.employees[index].salary,
+      password:this.employees[index].password,
       birth_date: this.employees[index].birth_date,
       hire_date: this.employees[index].hire_date,
     }});

@@ -14,7 +14,8 @@ export class EmployeRegistrationEditComponent implements OnInit {
   ngOnInit(): void {
   }
   updateEmployeRegistration(employe:any,no:number){
-
+    employe.no= no;
+    this._store_service.updateEmploye(employe);
   }
 
 }
