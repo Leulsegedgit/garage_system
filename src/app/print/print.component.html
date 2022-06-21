@@ -1,28 +1,61 @@
+<div class="imgcontainer">
+  <img src="../../assets/federal_logo_2.png" alt="Logo" class="avatar">
+  <h2>Federal Police Garage Report</h2>
+</div>
+<div [ngSwitch]="page">
+  <div *ngSwitchCase="'reception'">
 <table class="table table-borderd my-table">
     <thead>
     <tr>
-      
-        <th>Service No.</th>
+      <th>Service No.</th>
         <th>Plate No.</th>
         <th>Ref</th>
         <th>Date Received</th>
         <th>Date Finished</th>
         <th>Damage</th>
-      
-    </tr>
+      </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of receptions; index as i">
-      
-          <td><span>{{ data.service_number }}</span></td>
+    <tr *ngFor="let data of datas; index as i">
+       <td><span>{{ data.service_number }}</span></td>
           <td><span>{{ data.plate_number }}</span></td>
           <td><span>{{ data.refference }}</span></td>
           <td><span>{{ data.date_received }}</span></td>
           <td><span>{{ data.date_finished }}</span></td>
           <td><span>{{ data.damage }}</span></td>
-
-          
-    </tr>
+</tr>
   </tbody>
   </table>
+</div>
+<div *ngSwitchCase="'store_issue'">
+  <table class="table table-borderd my-table">
+      <thead>
+      <tr>
+        <th>No.</th>
+          <th>Request No.</th>
+          <th>Issue Ref. No.</th>
+          <th>Part No</th>
+          <th>Quantity Requested</th>
+          <th>Requester</th>
+          <th>Approver</th>
+          <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas; index as i">
+         <td><span>{{ data.no }}</span></td>
+            <td><span>{{ data.request_number }}</span></td>
+            <td><span>{{ data.issue_refference_number }}</span></td>
+            <td><span>{{ data.part_number }}</span></td>
+            <td><span>{{ data.quantity_requested }}</span></td>
+            <td><span>{{ data.requester }}</span></td>
+            <td><span>{{ data.approver }}</span></td>
+            <td><span>{{ data.date }}</span></td>
+  </tr>
+    </tbody>
+    </table>
+  </div>
+
+</div>
+
   <button mat-button color="primary" (click)="print()"><mat-icon>print</mat-icon></button>

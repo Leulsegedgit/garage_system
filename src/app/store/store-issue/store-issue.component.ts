@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { StoreIssueEditComponent } from 'src/app/dialog/store-issue-edit/store-issue-edit.component';
+import { PrintService } from 'src/app/services/print.service';
 import { StoreServiceService, store_request } from 'src/app/services/store-service.service';
 
 export interface store_issue {
@@ -8,8 +10,10 @@ export interface store_issue {
   request_number: string;
   issue_refference_number: string;
   part_number: string;
-  quantity_available: number;
   quantity_requested: number;
+  requester: string;
+  approver: string;
+
   date: string;
 }
 
@@ -19,8 +23,9 @@ export interface store_issue {
   styleUrls: ['./store-issue.component.css']
 })
 export class StoreIssueComponent implements OnInit {
+  public quantity_remaining = 0;
  
-  constructor(private _store:StoreServiceService,public dialog: MatDialog) { 
+  constructor(private _store:StoreServiceService,private print_service: PrintService,private _router: Router,public dialog: MatDialog) { 
 
   }
 
@@ -29,7 +34,6 @@ export class StoreIssueComponent implements OnInit {
     this._store.updaterow$.subscribe(
       row => {
         console.log(row);
-  console.log(row.no);
   
   this.stores[row.no-1] = row;
   this.dataSource = this.stores;
@@ -45,15 +49,15 @@ export class StoreIssueComponent implements OnInit {
   }
 
   public stores:store_issue[] = [
-    {no: 1, request_number: '1234' , issue_refference_number: '123' , part_number: 'Yohannes',quantity_available: 67, quantity_requested: 12,date: '12-02-2014'},
+    {no: 1, request_number: '1234' , issue_refference_number: '123' , part_number: 'Yohannes', quantity_requested: 12,requester: 'Leulseged Wondimu',approver: 'Zelalem Hailu',date: '12-02-2014'},
     ];
     partName = "";
     public stores_request:store_request[] = [
-      {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity:  1,date: ''}
+      {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity_requested:  1,date: ''}
     ];
     public  request_by_request_number = false;
 
-  displayedColumns: string[] = ['no','request_number','issue_refference_number', 'part_number','quantity_available', 'quantity_requested', 'date','edit','delete'];
+  displayedColumns: string[] = ['no','request_number','issue_refference_number', 'part_number', 'quantity_requested','requester','approver', 'date','edit','delete'];
   dataSource = this.stores;
   getStoreIssue(param:store_issue){
     this._store.getStoreIssue(param).subscribe(
@@ -67,8 +71,12 @@ export class StoreIssueComponent implements OnInit {
       }
     )
   }
-  addStoreIssue(param:store_issue,request_number: string){
-    param.request_number = request_number;
+  addStoreIssue(param:store_issue,store_request: store_request){
+    param.request_number = store_request.request_number;
+    param.requester = store_request.requester
+    param.approver = store_request.approver
+    param.part_number = store_request.part_number
+    param.quantity_requested = store_request.quantity_requested
     this._store.addStoreIssue(param).subscribe(
       (data)=>{
           param.no = this.stores.length+1;
@@ -78,9 +86,19 @@ export class StoreIssueComponent implements OnInit {
       }
     )
     
+this.quantity_remaining = this.quantity_remaining - store_request.quantity_requested;
+
+let store_receive =
+  { part_number:store_request.part_number,quantity_remaining:this.quantity_remaining}
+  ;
+this._store.decrementStoreRemaining(store_receive).subscribe(
+  (data)=>{
+
+  }
+)
+    
   }
   deleteStoreIssue(param:string){
-    console.log(param)
     this._store.deleteStoreIssue(param).subscribe(
       (data)=>{
         console.log(this.stores);
@@ -100,7 +118,6 @@ export class StoreIssueComponent implements OnInit {
       request_number: this.stores[index].request_number,
       part_number: this.stores[index].part_number,
       issue_refference_number: this.stores[index].issue_refference_number,
-      quantity_available: this.stores[index].quantity_available,
       quantity_requested: this.stores[index].quantity_requested,
       date: this.stores[index].date
     
@@ -115,16 +132,25 @@ export class StoreIssueComponent implements OnInit {
 getStoreRequestByRequestNumber(param:store_request){
   this._store.getStoreRequest(param).subscribe(
     (data)=>{
-     console.log(data[0]);
+     
      if(data.length==0){
-     this.stores_request[0] = {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity: 1,date: ''};
-      this.request_by_request_number = true
+     this.stores_request[0] = {no: 1, part_number:'',request_number: '' , service_number: '' , requester: '',approver: '',quantity_requested: 1,date: ''};
+     
+     this.request_by_request_number = true
      return
      }
+
+     this._store.getStoreReceiveRemaining(data[0].part_number).subscribe(
+      (data)=>{
+        console.log(data)
+        this.quantity_remaining = data[0].quantity_remaining;
+      }
+     )
       this.stores_request = data;
       this.request_by_request_number = false;
       }
   )
+  
 }
 getByPartNumber(part_number:string){
   this._store.getByPartNumber(part_number).subscribe(
@@ -140,5 +166,13 @@ getByPartNumber(part_number:string){
     }
   )
 }
+
+printData(){
+  this.print_service.fetchPrintData(this.stores)
+  this.print_service.setPrintPage("store_issue")
+    this._router.navigate(['/print']);
+    // this.print = true;
+    // window.print()
+  }
 }
 

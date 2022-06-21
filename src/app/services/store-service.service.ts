@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { spare } from '../store/spare-registration/spare-registration.component';
+import { store_issue } from '../store/store-issue/store-issue.component';
 export interface store_request {
   no: number;
   part_number: string;
@@ -10,7 +11,7 @@ export interface store_request {
   service_number: string;
   requester: string;
   approver: string;
-  quantity: number;
+  quantity_requested: number;
   date: string;
 }
 
@@ -29,15 +30,7 @@ export interface store_receive {
   
   date: string;
 }
-export interface store_issue {
-  no: number;
-  request_number: string;
-  issue_refference_number: string;
-  part_number: string;
-  quantity_available: number;
-  quantity_requested: number;
-  date: string;
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -111,7 +104,14 @@ export class StoreServiceService {
         this._updaterow.next(row);
         this.RefreashRequired.next();
       }
-
+      getStoreReceiveRemaining(part_number:string): Observable<any>{
+       
+        return  this.http.get<any>("http://localhost:3000/api/getstorereceiveremaining/"+part_number);
+        }
+        decrementStoreRemaining(param:any): Observable<store_receive>{
+       
+          return  this.http.put<store_receive>("http://localhost:3000/api/decrementstoreremaining/",param);
+          }
       
   //store issue
   getStoreIssue(param:store_issue): Observable<store_issue[]>{

@@ -159,7 +159,8 @@ public dashboard_content = "home";
  }
  
  printData(){
-this.print_service.setReceptions(this.receptions)
+this.print_service.fetchPrintData(this.receptions)
+this.print_service.setPrintPage("reception")
   this._router.navigate(['/print']);
   // this.print = true;
   // window.print()

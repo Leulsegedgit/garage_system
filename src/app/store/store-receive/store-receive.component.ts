@@ -70,6 +70,7 @@ return  this.names.filter(option =>
    {no: 1,plate_number:'aa-1234',receive_vocher_number:'123-54', part_number:'345-466',receiver: 'Alemayehu' , deliverer: 'Yohannes' , supplier: 'Yohannes',refference: 'TT-56',unit_price:234.6,quantity_received:86,quantity_remaining:23,date: '12-02-2014'},
    ];
    partName = "";
+   quantity_received = "";
    names: string[] = ['Metec','ABY','JAGUAR','LION'];
  displayedColumns: string[] = ['no','plate_number','receive_vocher_number','part_number', 'receiver', 'deliverer', 'supplier','refference','unit_price','quantity_received','quantity_remaining','date','edit','delete'];
  dataSource = this.stores;
@@ -86,7 +87,7 @@ return  this.names.filter(option =>
    )
  }
  addStoreReceive(param:store_receive,sup:string){
-  
+  param.quantity_remaining = param.quantity_received;
   param.supplier = sup;
    this._store.addStoreReceive(param).subscribe(
      (data)=>{

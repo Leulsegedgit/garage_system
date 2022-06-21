@@ -10,13 +10,15 @@ import { PrintService } from '../services/print.service';
 export class PrintComponent implements OnInit {
 
   constructor(public print_service:PrintService) { }
+  public page = ""
 
   ngOnInit(): void {
-    this.receptions = this.print_service.getReception();
+    //this.receptions = this.print_service.getReception();
+    this.datas = this.print_service.getPrintData();
+    this.page = this.print_service.getPrintPage();
   }
-  public receptions:reception[] = [
-    { no: 1, service_number: '66-GH-34', plate_number: 'AA-1234', refference: 'REF34892', date_received: '22-11-2022', date_finished: '29-11-2022', service_type: "4", status: 'Finished',
-    fuel_gauge: '4.5', damage: 'Dead battery', other: 'Paint scratch'} ];
+  
+    public datas:any[] = [];
   print(){
  
     window.print()
