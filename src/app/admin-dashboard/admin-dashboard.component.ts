@@ -10,6 +10,7 @@ import { UsersService } from '../services/users.service';
 })
 export class AdminDashboardComponent implements OnInit {
   public dashboard_content = "home";
+  public opened = true;
   public  piechart = [
     {
       "name": "Drivers",

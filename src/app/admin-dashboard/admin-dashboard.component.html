@@ -1,6 +1,6 @@
 <mat-drawer-container class="example-container" autosize>
 
-    <mat-drawer #drawer class="example-sidenav" mode="side" style="background-color: rgb(214, 222, 231);">
+    <mat-drawer #drawer class="example-sidenav" [(opened)]="opened" mode="side" style="background-color: rgb(214, 222, 231);">
       <app-dashboard-sidnav></app-dashboard-sidnav>
     </mat-drawer>
   
