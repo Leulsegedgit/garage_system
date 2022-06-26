@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SupplierService } from 'src/app/services/supplier.service';
+import { supplier } from 'src/app/supplier/supplier.component';
 
 @Component({
   selector: 'app-supplier-edit',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierEditComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private _supplier_service:SupplierService) { }
+  
   ngOnInit(): void {
   }
-
+  updateSupplier(supplier:supplier,no:number){
+    supplier.no= no;
+    supplier.date = this.data.date
+    this._supplier_service.updateSupplier(supplier);
+  }
 }

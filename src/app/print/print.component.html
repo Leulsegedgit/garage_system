@@ -55,7 +55,75 @@
     </tbody>
     </table>
   </div>
-
+  <div *ngSwitchCase="'spare'">
+    <table class="table table-borderd my-table">
+        <thead>
+        <tr>
+          <th>No.</th>
+            <th>Part No.</th>
+            <th>Part name</th>
+            <th>Unit measure</th>
+            <th>Vehicle Type</th>
+            <th>Store number</th>
+            <th>Part type</th>
+            <th>Location</th>
+            <th>Unit price</th>
+            <th>Class type</th>
+            <th>H/L</th>
+            <th>Consumable</th>
+            <th>Description</th>
+            <th>Date</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of datas; index as i">
+           <td><span>{{ data.no }}</span></td>
+              <td><span>{{ data.part_number }}</span></td>
+              <td><span>{{ data.part_name }}</span></td>
+              <td><span>{{ data.unit_measure }}</span></td>
+              <td><span>{{ data.vehicle_type }}</span></td>
+              <td><span>{{ data.store_number }}</span></td>
+              <td><span>{{ data.part_type }}</span></td>
+              <td><span>{{ data.location }}</span></td>
+              <td><span>{{ data.unit_price }}</span></td>
+              <td><span>{{ data.class_type }}</span></td>
+              <td><span>{{ data.heavy_light }}</span></td>
+              <td><span>{{ data.consumable }}</span></td>
+              <td><span>{{ data.description }}</span></td>
+              <td><span>{{ data.date }}</span></td>
+    </tr>
+      </tbody>
+      </table>
+    </div>
+    <div *ngSwitchCase="'store_request'">
+      <table class="table table-borderd my-table">
+          <thead>
+          <tr>
+            <th>No.</th>
+              <th>Part No.</th>
+              <th>Request No.</th>
+              <th>Service No.</th>
+              <th>Requester</th>
+              <th>Approver</th>
+              <th>Quantity requested</th>
+              <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datas; index as i">
+             <td><span>{{ data.no }}</span></td>
+                <td><span>{{ data.part_number }}</span></td>
+                <td><span>{{ data.request_number }}</span></td>
+                <td><span>{{ data.service_number }}</span></td>
+                <td><span>{{ data.requester }}</span></td>
+                <td><span>{{ data.approver }}</span></td>
+                <td><span>{{ data.quantity_requested }}</span></td>
+                <td><span>{{ data.date }}</span></td>
+      </tr>
+        </tbody>
+        </table>
+      </div>
+  
 </div>
-
-  <button mat-button color="primary" (click)="print()"><mat-icon>print</mat-icon></button>
+<button mat-button color="primary" (click)="print()"><mat-icon>print</mat-icon></button>
+  

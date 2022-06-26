@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { SpareRegistrationEditComponent } from 'src/app/dialog/spare-registration-edit/spare-registration-edit.component';
+import { PrintService } from 'src/app/services/print.service';
 import { StoreServiceService } from 'src/app/services/store-service.service';
 
 export interface spare {
@@ -27,7 +29,7 @@ export interface spare {
 })
 export class SpareRegistrationComponent implements OnInit {
 
-  constructor(private _store:StoreServiceService,public dialog: MatDialog) { 
+  constructor(private _store:StoreServiceService,private print_service: PrintService,private _router: Router,public dialog: MatDialog) { 
 
   }
  
@@ -56,7 +58,7 @@ export class SpareRegistrationComponent implements OnInit {
     location: '15C', class_type: 'A', heavy_light: 'LIGHT', consumable: 'NON CONSUMABLE', description: 'fRAIN CABLE', date: '23-10-2022'}
 ];
 
-  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','location','unit_price','class_type','heavy_light','consumable','description','edit','delete'];
+  displayedColumns: string[] = ['no','part_number','part_name','unit_measure', 'vehicle_type',  'store_number','part_type','location','unit_price','class_type','heavy_light','consumable','description','date','edit','delete'];
   dataSource = this.spares;
   getSpare(param:spare){
 
@@ -120,7 +122,13 @@ export class SpareRegistrationComponent implements OnInit {
     });
  
  }
- 
+ printData(){
+  this.print_service.fetchPrintData(this.spares)
+  this.print_service.setPrintPage("spare")
+    this._router.navigate(['/print']);
+    // this.print = true;
+    // window.print()
+  }
  
  }
  

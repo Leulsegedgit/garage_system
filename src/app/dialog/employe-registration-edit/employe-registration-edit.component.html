@@ -10,6 +10,10 @@
           <input matInput name="title" [ngModel]="data.title" >
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input matInput name="name" [ngModel]="data.name" >
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Gender</mat-label>
           <input matInput name="gender" [ngModel]="data.gender">
         </mat-form-field></td>
@@ -21,6 +25,12 @@
           <mat-label>Responsibility</mat-label>
           <input matInput name="responsibility" [ngModel]="data.responsibility">
         </mat-form-field></td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Department</mat-label>
+          <input matInput name="department" [ngModel]="data.department">
+        </mat-form-field></td>
         <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Type</mat-label>
             <input matInput name="type" [ngModel]="data.type">
@@ -31,9 +41,6 @@
           <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
           <mat-datepicker #mydatepicker></mat-datepicker>
         </mat-form-field></td>
-        
-      </tr>
-      <tr>
         <td><mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Directorate</mat-label>
             <input matInput name="directorate" [ngModel]="data.directorate" >
@@ -46,6 +53,8 @@
               <mat-label>Mastebaberiya</mat-label>
               <input matInput name="mastebaberiya" [ngModel]="data.mastebaberiya">
             </mat-form-field></td>
+            </tr>
+            <tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Team</mat-label>
               <input matInput name="team" [ngModel]="data.team">
@@ -64,8 +73,6 @@
               <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
               <mat-datepicker #mydatepicker2></mat-datepicker>
             </mat-form-field></td> 
-      </tr>
-      <tr>
         <td><mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Password</mat-label>
           <input matInput name="password" [ngModel]="data.password">

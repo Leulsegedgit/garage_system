@@ -1,1 +1,63 @@
-<p>supplier-edit works!</p>
+<form #supplierForm="ngForm" class="example-form" >
+    <mat-card>
+      <mat-card-title>
+      Suppplier Information
+    </mat-card-title>
+    <mat-card-content>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Supplier Name</mat-label>
+          <input matInput name="name" [ngModel]="data.name">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Supplier Id</mat-label>
+          <input matInput name="supplier_id" [ngModel]="data.supplier_id">
+        </mat-form-field></td>
+        
+      </tr></table>
+    </mat-card-content>
+    </mat-card>
+      <mat-card>
+      <mat-card-title>
+       Supplier Contact Information
+    </mat-card-title>
+    <mat-card-content>
+      <table class="example-full-width" cellspacing="0"><tr>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Contact</mat-label>
+          <input matInput name="contact" [ngModel]="data.contact">
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput name="address" [ngModel]="data.address">
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Tel1</mat-label>
+          <input matInput name="tel1" [ngModel]="data.tel1">
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Tel2</mat-label>
+          <input matInput name="tel2" [ngModel]="data.tel2">
+        </mat-form-field></td>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Website</mat-label>
+          <input matInput name="website" [ngModel]="data.website">
+        </mat-form-field></td>
+        </tr></table>
+      </mat-card-content>
+    
+    
+  </mat-card>
+  
+    </form>
+    <mat-dialog-actions>
+        
+      <button mat-raised-button color="primary" mat-dialog-close (click)="updateSupplier(supplierForm.value,data.no)">Update</button>
+  </mat-dialog-actions>
+ 
+   

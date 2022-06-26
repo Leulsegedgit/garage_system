@@ -39,6 +39,8 @@ import { EmployeRegistrationComponent } from './employe/employe-registration/emp
 import { EmployeRegistrationEditComponent } from './dialog/employe-registration-edit/employe-registration-edit.component';
 import { SupplierEditComponent } from './dialog/supplier-edit/supplier-edit.component';
 import { PrintComponent } from './print/print.component';
+import { ReceptionEditComponent } from './dialog/reception-edit/reception-edit.component';
+import { VehicleEditComponent } from './dialog/vehicle-edit/vehicle-edit.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { PrintComponent } from './print/print.component';
     EmployeRegistrationEditComponent,
     SpareRegistrationEditComponent,
     SupplierEditComponent,
-    PrintComponent
+    PrintComponent,
+    ReceptionEditComponent,
+    VehicleEditComponent
     
   ],
   entryComponents: [StoreReceiveEditComponent,StoreRequestEditComponent,SpareRegistrationEditComponent,StoreIssueEditComponent],

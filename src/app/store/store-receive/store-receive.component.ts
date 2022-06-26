@@ -41,9 +41,7 @@ export class StoreReceiveComponent implements OnInit {
    
    this._store.updaterow$.subscribe(
      row => {
-       console.log(row);
- console.log(row.no);
- 
+       
  this.stores[row.no-1] = row;
  this.dataSource = this.stores;
  this.deleteStoreReceive('0');
@@ -105,7 +103,7 @@ return  this.names.filter(option =>
    this._store.deleteStoreReceive(param).subscribe(
      (data)=>{
        console.log(this.stores);
-        this.stores = this.stores.filter(function(el) { return el.part_number != param; }); 
+        this.stores = this.stores.filter(function(el) { return el.receive_vocher_number != param; }); 
 
         this.dataSource = this.stores;   
      }

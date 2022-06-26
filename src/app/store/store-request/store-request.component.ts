@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 import { map,startWith } from 'rxjs/operators';
 import { EmployeService } from 'src/app/services/employe.service';
 import { HelperFunctionsService } from 'src/app/services/helper-functions.service';
+import { PrintComponent } from 'src/app/print/print.component';
+import { PrintService } from 'src/app/services/print.service';
+import { Router } from '@angular/router';
 
 export interface store_request {
   no: number;
@@ -36,7 +39,7 @@ export interface store_request {
 export class StoreRequestComponent implements OnInit {
 
    
-  constructor(private _store:StoreServiceService,private _helper:HelperFunctionsService,public dialog: MatDialog) { 
+  constructor(private _store:StoreServiceService,private _helper:HelperFunctionsService,private print_service: PrintService,private _router: Router,public dialog: MatDialog) { 
 
   }
 
@@ -97,7 +100,7 @@ private filterNames(name:string): string[]{
   myControl = new FormControl();
   filteredNames: Observable<string[]> | undefined;
 
-  displayedColumns: string[] = ['no','part_number', 'request_number', 'service_number', 'requester','approver','quantity','date','edit','delete'];
+  displayedColumns: string[] = ['no','part_number', 'request_number', 'service_number', 'requester','approver','quantity_requested','date','edit','delete'];
   dataSource = this.stores;
   getStoreRequest(param:store_request){
     this._store.getStoreRequest(param).subscribe(
@@ -174,9 +177,12 @@ getByPartNumber(part_number:string){
   )
 }
 printData(){
-  this.print = true;
-  window.print()
-}
+  this.print_service.fetchPrintData(this.stores)
+  this.print_service.setPrintPage("store_request")
+    this._router.navigate(['/print']);
+    // this.print = true;
+    // window.print()
+  }
 
 }
 

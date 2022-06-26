@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { map, Observable,startWith } from 'rxjs';
-import { SpareRegistrationEditComponent } from '../dialog/spare-registration-edit/spare-registration-edit.component';
+import { ReceptionEditComponent } from '../dialog/reception-edit/reception-edit.component';
 import { HelperFunctionsService } from '../services/helper-functions.service';
 import { PrintService } from '../services/print.service';
 import { ReceptionService } from '../services/reception.service';
@@ -136,7 +136,7 @@ public dashboard_content = "home";
   openDialog(row:any): void {
     let index = row-1;
     
-    const dialogRef = this.dialog.open(SpareRegistrationEditComponent,{data: {
+    const dialogRef = this.dialog.open(ReceptionEditComponent,{data: {
       no: this.receptions[index].no,
       service_number: this.receptions[index].service_number,
       plate_number: this.receptions[index].plate_number,

@@ -33,8 +33,7 @@ export class StoreIssueComponent implements OnInit {
     
     this._store.updaterow$.subscribe(
       row => {
-        console.log(row);
-  
+       
   this.stores[row.no-1] = row;
   this.dataSource = this.stores;
   this.deleteStoreIssue('0');

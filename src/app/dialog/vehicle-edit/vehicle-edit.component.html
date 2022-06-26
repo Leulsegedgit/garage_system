@@ -1,0 +1,39 @@
+<form #vehicleForm="ngForm" >
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Plate Nmber</mat-label>
+      <input matInput name="plate_number" [ngModel]="data.plate_number" >
+    </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Chassi Number</mat-label>
+        <input matInput name="chassi_number" [ngModel]="data.chassi_number" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput name="price" [ngModel]="data.price">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CC</mat-label>
+        <input matInput name="cc" [ngModel]="data.cc">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Number of tyers</mat-label>
+        <input matInput name="tyers" [ngModel]="data.tyers">
+      </mat-form-field></td>
+      </tr>
+      <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput name="description" [ngModel]="data.description">
+      </mat-form-field></td>
+      
+    </tr></table>
+    
+  </form>
+  
+    <mat-dialog-actions>
+        
+        <button mat-raised-button color="primary" mat-dialog-close (click)="updateVehicle(vehicleForm.value,data.no)">Update</button>
+    </mat-dialog-actions>
+   

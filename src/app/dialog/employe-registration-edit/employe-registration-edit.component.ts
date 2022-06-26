@@ -15,6 +15,7 @@ export class EmployeRegistrationEditComponent implements OnInit {
   }
   updateEmployeRegistration(employe:any,no:number){
     employe.no= no;
+    console.log(employe)
     this._store_service.updateEmploye(employe);
   }
 

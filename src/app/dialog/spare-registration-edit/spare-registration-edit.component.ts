@@ -15,6 +15,10 @@ export class SpareRegistrationEditComponent implements OnInit {
   }
   updateSpareRegistration(store:any,no:number){
     store.no= no;
+    store.class_type = this.data.class_type
+    store.consumable = this.data.consumable
+    store.heavy_light = this.data.heavy_light
+    
     this._store_service.updateSpare(store);
   }
 }

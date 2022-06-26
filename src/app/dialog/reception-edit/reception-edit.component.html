@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-card-content>
+<form #receptionForm="ngForm" class="example-form">
+  <h2>Reception Header</h2>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Service Request Number</mat-label>
+        <input matInput name="service_number" [ngModel]="data.service_number">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Letter refference</mat-label>
+        <input matInput name="refference" [ngModel]="data.refference">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plate Number</mat-label>
+        <input matInput name="plate_number" [ngModel]="data.plate_number">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date Received</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" name="date_received" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field></td>
+    </tr>
+    <tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Date Finshed</mat-label>
+        <input matInput [matDatepicker]="mydatepicker2" name="date_finished" ngModel>
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker2></mat-datepicker>
+      </mat-form-field></td>
+      
+      
+       
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fuel Gauge</mat-label>
+        <input matInput name="fuel_gauge" [ngModel]="data.fuel_gauge">
+      </mat-form-field></td>
+    </tr>
+  </table>
+
+    <h2>Detail Information</h2>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Other</mat-label>
+        <textarea matInput placeholder="Paint Scratches and Small Dents, The Car is Consuming Too Much Oil" name="other" [ngModel]="data.other"></textarea>
+      </mat-form-field>
+      
+  
+    
+        <!-- <div>
+           
+            <h2>Damage:</h2>
+            <div class="damage_lists">
+              <span>
+        <mat-checkbox >Dead battery</mat-checkbox>
+        <mat-checkbox >Flat tires</mat-checkbox>
+        <mat-checkbox >Alternator Failure</mat-checkbox>
+        <mat-checkbox > Overheating</mat-checkbox>
+        <mat-checkbox >Radiator is Leaking</mat-checkbox>
+        <mat-checkbox >Fuel Leaks</mat-checkbox>
+        <mat-checkbox >Electrical Problems: Speakers, Lights..</mat-checkbox>
+        <mat-checkbox >Window Problems</mat-checkbox>
+        <mat-checkbox >Rust</mat-checkbox>
+      </span>
+      </div> -->
+      <!-- <h2>Damage:</h2>
+      <mat-selection-list #shoes name="damage" [ngModel]="data.damage">
+        <mat-list-option value="Dead battery">Dead battery </mat-list-option>
+        <mat-list-option value="Flat tires">Flat tires </mat-list-option>
+        <mat-list-option value="Alternator Failure">Alternator Failure </mat-list-option>
+        <mat-list-option value="Overheating">Overheating </mat-list-option>
+        <mat-list-option value="Radiator is Leaking">Radiator is Leaking </mat-list-option>
+        <mat-list-option value="Fuel Leaks">Fuel Leaks</mat-list-option>
+        <mat-list-option value="Electrical Problems: Speakers, Lights..">Electrical Problems: Speakers, Lights.. </mat-list-option>
+        <mat-list-option value="Window Problems">Window Problems </mat-list-option>
+        <mat-list-option value="Rust">Rust </mat-list-option>
+      </mat-selection-list> -->
+      
+      
+  </form>
+</mat-card-content>
+<mat-card-actions>
+          
+    <button mat-raised-button color="primary" mat-dialog-close (click)="updateReception(receptionForm.value,data.no)">Update</button>
+</mat-card-actions>
+</mat-card>

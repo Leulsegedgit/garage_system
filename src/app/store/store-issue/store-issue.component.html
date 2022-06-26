@@ -1,3 +1,4 @@
+<mat-card>
 <form #storeRequestForm="ngForm" class="example-form">
     <h1>Store request header</h1>
   
@@ -12,19 +13,19 @@
       <tr>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Service requst</mat-label>
-        <input matInput name="service_number" [ngModel]="stores_request[0].service_number">
+        <input matInput  name="service_number" [ngModel]="stores_request[0].service_number">
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Requester</mat-label>
-        <input matInput name="requester" [ngModel]="stores_request[0].requester">
+        <input matInput  name="requester" [ngModel]="stores_request[0].requester">
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Approver</mat-label>
-        <input matInput name="approver" [ngModel]="stores_request[0].approver">
+        <input matInput  name="approver" [ngModel]="stores_request[0].approver">
       </mat-form-field></td>
       <td><mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="mydatepicker" name="request_date" [ngModel]="stores_request[0].date" >
+        <input matInput  [matDatepicker]="mydatepicker" name="request_date" [ngModel]="stores_request[0].date" >
         <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
         <mat-datepicker #mydatepicker></mat-datepicker>
       </mat-form-field></td>
@@ -32,7 +33,7 @@
   <tr>
     <td><mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Part number</mat-label>
-      <input matInput name="part_number" [ngModel]="stores_request[0].part_number">
+      <input matInput  name="part_number" [ngModel]="stores_request[0].part_number">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="getByPartNumber(storeRequestForm.value.part_number)" ><mat-icon>search</mat-icon>Search By Part No.</button>
     <br>
@@ -42,7 +43,7 @@
 
     <td><mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Quantity Requested</mat-label>
-      <input matInput name="quantity_requested" [ngModel]="stores_request[0].quantity_requested">
+      <input matInput  name="quantity_requested" [ngModel]="stores_request[0].quantity_requested">
     </mat-form-field></td>
 
     <td><mat-form-field class="example-full-width" appearance="fill">
@@ -82,6 +83,7 @@
     
 
   </form>
+</mat-card>
   
   <h2>Results:</h2> 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
