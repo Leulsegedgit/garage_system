@@ -31,7 +31,7 @@ export interface employe {
   styleUrls: ['./employe-registration.component.css']
 })
 export class EmployeRegistrationComponent implements OnInit {
-
+public not_valid_input = false;
   
   constructor(private _employe:EmployeService,public dialog: MatDialog) { 
 
@@ -77,6 +77,16 @@ export class EmployeRegistrationComponent implements OnInit {
     )
   }
   addEmploye(param:employe){
+    if(isNaN(param.salary)  ){
+      this.not_valid_input = true
+      return
+    }
+    if(param.salary <=0 )
+    {
+      this.not_valid_input = true
+      return
+    }
+    this.not_valid_input = false
     this._employe.addEmploye(param).subscribe(
       (data)=>{
         

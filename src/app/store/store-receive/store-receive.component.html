@@ -2,31 +2,31 @@
     <h1>Store receive header</h1>
   
     <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Plate number</mat-label>
         <input matInput name="plate_number" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Receive vocher number</mat-label>
         <input matInput name="receive_vocher_number" ngModel>
       </mat-form-field></td>
       
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Receiver</mat-label>
         <input matInput name="receiver" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Deliverer</mat-label>
         <input matInput name="deliverer" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Refference</mat-label>
         <input matInput name="refference" ngModel>
       </mat-form-field></td>
       </tr>
       <tr>
        
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Supplier</mat-label>
           <input matInput name="supplier"  [matAutocomplete]="auto"  [formControl]="myControl" (input)="getNames(myControl.value)" >
           <mat-autocomplete #auto="matAutocomplete">
@@ -35,19 +35,19 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Unit price</mat-label>
         <input matInput name="unit_price" ngModel>
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Quantity received</mat-label>
         <input matInput name="quantity_received" [(ngModel)]="quantity_received">
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Quantity remaining</mat-label>
         <input matInput disabled  name="quantity_remaining" [ngModel]="quantity_received" >
       </mat-form-field></td>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Date</mat-label>
         <input matInput [matDatepicker]="mydatepicker" name="date" ngModel>
         <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
@@ -56,7 +56,7 @@
     </tr></table>
     
     <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Part number</mat-label>
         <input matInput name="part_number" ngModel>
       </mat-form-field>

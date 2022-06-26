@@ -5,12 +5,15 @@
         </mat-card-title>
         <mat-card-content>
     <table class="example-full-width" cellspacing="0"><tr>
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Employe Id</mat-label>
-        <input matInput name="employe_id" ngModel>
+        <input matInput required name="employe_id" ngModel>
+        <mat-hint style="color: red">
+          Used as username for login
+        </mat-hint>
       </mat-form-field></td>
       
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Title</mat-label>
         <mat-select name="title" ngModel>
             <mat-option value="Ato">Ato</mat-option>
@@ -20,12 +23,12 @@
             </mat-select>
       </mat-form-field></td>
 
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Full Name</mat-label>
-        <input matInput name="name" ngModel>
+        <input matInput required name="name" ngModel>
       </mat-form-field></td>
 
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Gender</mat-label>
         <mat-select name="gender" ngModel>
             <mat-option value="gender_male">MALE</mat-option>
@@ -35,7 +38,7 @@
       </tr>
       <tr>
 
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Profession</mat-label>
         <mat-select name="profession" ngModel>
                 <mat-option value="Techincian/Tester">Techincian/Tester</mat-option>
@@ -46,7 +49,7 @@
             </mat-select>
       </mat-form-field></td>
 
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Responsiblity</mat-label>
           <mat-select name="responsibility" ngModel>
                   <mat-option value="Director">Director</mat-option>
@@ -58,7 +61,7 @@
         </mat-form-field></td>
 
         
-      <td><mat-form-field class="example-full-width" appearance="fill">
+      <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Department</mat-label>
           <mat-select name="department" ngModel>
                   <mat-option value="Ethiopian Police Unversity College">Ethiopian Police Unversity College</mat-option>
@@ -68,7 +71,7 @@
               </mat-select>
         </mat-form-field></td>
      
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Directorate</mat-label>
               <mat-select name="directorate" ngModel>
                       <mat-option value="Audit">Audit</mat-option>
@@ -79,7 +82,7 @@
     </tr>
     <tr>
 
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Division</mat-label>
           <mat-select name="division" ngModel>
                   <mat-option value="Division A">Division A</mat-option>
@@ -88,7 +91,7 @@
                   </mat-select>
         </mat-form-field></td>
   
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Mastebaberiya</mat-label>
             <mat-select name="mastebaberiya" ngModel>
                     <mat-option value="Matebaberia A">Matebaberia A</mat-option>
@@ -98,7 +101,7 @@
           </mat-form-field></td>
   
           
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Team</mat-label>
             <mat-select name="team" ngModel>
                     <mat-option value="Team A">Team A</mat-option>
@@ -107,7 +110,7 @@
             </mat-select>
           </mat-form-field></td>
        
-          <td><mat-form-field class="example-full-width" appearance="fill">
+          <td><mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Education Level</mat-label>
                 <mat-select name="level" ngModel>
                         <mat-option value="10th">10th</mat-option>
@@ -120,27 +123,30 @@
               </mat-form-field></td>
       </tr>
       <tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Employe Type</mat-label>
-              <mat-select name="type" ngModel>
+              <mat-select required name="type" ngModel>
                       <mat-option value="Admin">Admin</mat-option>
                       <mat-option value="User">User</mat-option>
                        </mat-select>
             </mat-form-field></td>
 
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Salary</mat-label>
             <input matInput name="salary" ngModel>
+            <mat-hint style="color: red;" *ngIf="not_valid_input">
+            salary must be a number and grater than 0
+            </mat-hint>
           </mat-form-field></td>
 
-          <td><mat-form-field class="example-full-width" appearance="fill">
+          <td><mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Birth Date</mat-label>
             <input matInput [matDatepicker]="mydatepicker" name="birth_date" ngModel>
             <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
             <mat-datepicker #mydatepicker></mat-datepicker>
           </mat-form-field></td>
 
-          <td><mat-form-field class="example-full-width" appearance="fill">
+          <td><mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Hired Date</mat-label>
             <input matInput [matDatepicker]="mydatepicker2" name="hire_date" ngModel>
             <mat-datepicker-toggle matSuffix [for]="mydatepicker2"></mat-datepicker-toggle>
@@ -149,9 +155,9 @@
 
       </tr>
       <tr>
-        <td><mat-form-field class="example-full-width" appearance="fill">
+        <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput name="password" ngModel>
+          <input matInput required name="password" ngModel>
         </mat-form-field></td> 
       </tr>
 </table>
@@ -160,7 +166,8 @@
     <div class="example-button-row">
       <button mat-raised-button (click)="getEmploye(employeForm.value)"><mat-icon>search</mat-icon>Search</button>
       <div class="space2"></div>
-      <button mat-raised-button color="primary" (click)="addEmploye(employeForm.value)"><mat-icon>save_alt</mat-icon>Save</button>
+      <button mat-raised-button color="primary" (click)="addEmploye(employeForm.value)" 
+      [disabled]="!employeForm.form.valid"><mat-icon>save_alt</mat-icon>Save</button>
    </div>
 </mat-card-actions>
 </mat-card>
